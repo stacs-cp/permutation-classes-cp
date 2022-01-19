@@ -15,4 +15,5 @@ with open("seqwiki.json", "r") as inp:
             print("$ result: ", result, file=out)
             print("", file=out)
             print("letting length be", length, file=out)
-            print("letting avoiding be", avoiding, file=out)
+            avoidingStr = "{" + ", ".join([ "sequence(" + ",".join([str(x) for x in av]) +  ")" for av in avoiding ]) + "}"
+            print("letting avoiding be", avoidingStr, file=out)

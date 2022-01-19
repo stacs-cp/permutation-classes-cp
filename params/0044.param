@@ -4,4 +4,4 @@ $ formula:  finite
 $ result:  4
 
 letting length be 4
-letting avoiding be [[1, 2, 3], [3, 2, 1]]
+letting avoiding be {sequence(1,2,3), sequence(3,2,1)}

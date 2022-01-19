@@ -4,4 +4,4 @@ $ formula:  binomial(2n,n)/(n+1)
 $ result:  4862
 
 letting length be 9
-letting avoiding be [[1, 2, 3]]
+letting avoiding be {sequence(1,2,3)}

@@ -4,4 +4,4 @@ $ formula:  2 * Sum_{k=0..n} binomial(2*k, k) * (binomial(n, k))^2 * (3*k^2 + 2*
 $ result:  2761
 
 letting length be 7
-letting avoiding be [[1, 2, 3, 4]]
+letting avoiding be {sequence(1,2,3,4)}

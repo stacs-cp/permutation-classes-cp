@@ -1,0 +1,7 @@
+language Essence 1.3
+
+$ formula:  finite
+$ result:  5
+
+letting length be 3
+letting avoiding be [[3, 2, 1], [1, 2, 3, 4]]

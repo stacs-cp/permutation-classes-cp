@@ -1,0 +1,7 @@
+language Essence 1.3
+
+$ formula:  Unknown
+$ result:  94776
+
+letting length be 9
+letting avoiding be [[1, 3, 2, 4]]

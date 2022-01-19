@@ -1,0 +1,7 @@
+language Essence 1.3
+
+$ formula:  (n^4 - 4n^3 + 11n^2 - 8n + 12)/12
+$ result:  13
+
+letting length be 4
+letting avoiding be [[1, 3, 2], [4, 3, 2, 1]]

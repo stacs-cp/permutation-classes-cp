@@ -1,0 +1,7 @@
+language Essence 1.3
+
+$ formula:  Unknown
+$ result:  103
+
+letting length be 5
+letting avoiding be [[1, 3, 2, 4]]

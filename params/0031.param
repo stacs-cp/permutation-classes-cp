@@ -4,4 +4,4 @@ $ formula:  Unknown
 $ result:  2
 
 letting length be 2
-letting avoiding be [[1, 3, 2, 4]]
+letting avoiding be {sequence(1,3,2,4)}

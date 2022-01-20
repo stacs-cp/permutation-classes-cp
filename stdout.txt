@@ -1,0 +1,370 @@
+$ time python3 run.py                                                     INT ✘  took 41s 
+LOG: Generated param files
+LOG: Generated E'
+LOG: Done 0000. Correct solution found.
+LOG: Done 0001. Correct solution found.
+LOG: Done 0002. Correct solution found.
+LOG: Done 0003. Correct solution found.
+LOG: Done 0004. Correct solution found.
+LOG: Done 0005. Correct solution found.
+LOG: Done 0006. Correct solution found.
+LOG: Done 0007. Correct solution found.
+LOG: Done 0008. Correct solution found.
+LOG: Done 0009. Correct solution found.
+LOG: Done 0010. Correct solution found.
+LOG: Done 0011. Correct solution found.
+LOG: Done 0012. Incorrect solution found. Expected 6, but got 5.
+LOG: Done 0013. Incorrect solution found. Expected 23, but got 14.
+LOG: Done 0014. Incorrect solution found. Expected 103, but got 42.
+LOG: Done 0015. Incorrect solution found. Expected 512, but got 132.
+LOG: Done 0016. Incorrect solution found. Expected 2740, but got 429.
+LOG: Done 0017. Incorrect solution found. Expected 15485, but got 1430.
+LOG: Done 0018. Incorrect solution found. Expected 91245, but got 4862.
+LOG: Done 0019. Incorrect solution found. Expected 555662, but got 16796.
+LOG: Done 0020. Correct solution found.
+LOG: Done 0021. Correct solution found.
+LOG: Done 0022. Incorrect solution found. Expected 6, but got 5.
+LOG: Done 0023. Incorrect solution found. Expected 23, but got 14.
+LOG: Done 0024. Incorrect solution found. Expected 103, but got 42.
+LOG: Done 0025. Incorrect solution found. Expected 513, but got 132.
+LOG: Done 0026. Incorrect solution found. Expected 2761, but got 429.
+LOG: Done 0027. Incorrect solution found. Expected 15767, but got 1430.
+LOG: Done 0028. Incorrect solution found. Expected 94359, but got 4862.
+LOG: Done 0029. Incorrect solution found. Expected 586590, but got 16796.
+LOG: Done 0030. Correct solution found.
+LOG: Done 0031. Correct solution found.
+LOG: Done 0032. Incorrect solution found. Expected 6, but got 5.
+LOG: Done 0033. Incorrect solution found. Expected 23, but got 14.
+LOG: Done 0034. Incorrect solution found. Expected 103, but got 42.
+LOG: Done 0035. Incorrect solution found. Expected 513, but got 132.
+LOG: Done 0036. Incorrect solution found. Expected 2762, but got 429.
+LOG: Done 0037. Incorrect solution found. Expected 15793, but got 1430.
+LOG: Done 0038. Incorrect solution found. Expected 94776, but got 4862.
+LOG: Done 0039. Incorrect solution found. Expected 591950, but got 16796.
+LOG: Done 0040. Expected Unknown, found NONE.
+LOG: Done 0041. Correct solution found.
+LOG: Done 0042. Correct solution found.
+LOG: Done 0043. Correct solution found.
+LOG: Done 0044. Correct solution found.
+LOG: Done 0045. Correct solution found.
+LOG: Done 0046. Correct solution found.
+LOG: Done 0047. Correct solution found.
+LOG: Done 0048. Correct solution found.
+LOG: Done 0049. Correct solution found.
+LOG: Done 0050. Correct solution found.
+LOG: Done 0051. Correct solution found.
+LOG: Done 0052. Correct solution found.
+LOG: Done 0053. Correct solution found.
+LOG: Done 0054. Correct solution found.
+LOG: Done 0055. Correct solution found.
+LOG: Done 0056. Correct solution found.
+LOG: Done 0057. Correct solution found.
+LOG: Done 0058. Correct solution found.
+LOG: Done 0059. Correct solution found.
+LOG: Done 0060. Correct solution found.
+LOG: Done 0061. Correct solution found.
+LOG: Done 0062. Correct solution found.
+LOG: Done 0063. Correct solution found.
+LOG: Done 0064. Correct solution found.
+LOG: Done 0065. Correct solution found.
+LOG: Done 0066. Correct solution found.
+LOG: Done 0067. Correct solution found.
+LOG: Done 0068. Correct solution found.
+LOG: Done 0069. Correct solution found.
+LOG: Done 0070. Incorrect solution found. Expected 521, but got 512.
+LOG: Done 0071. Correct solution found.
+LOG: Done 0072. Correct solution found.
+LOG: Done 0073. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0074. Incorrect solution found. Expected 13, but got 4.
+LOG: Done 0075. Incorrect solution found. Expected 25, but got 0.
+LOG: Done 0076. Incorrect solution found. Expected 25, but got 0.
+LOG: Done 0077. Correct solution found.
+LOG: Done 0078. Correct solution found.
+LOG: Done 0079. Correct solution found.
+LOG: Done 0080. Correct solution found.
+LOG: Done 0081. Correct solution found.
+LOG: Done 0082. Correct solution found.
+LOG: Done 0083. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0084. Incorrect solution found. Expected 13, but got 7.
+LOG: Done 0085. Incorrect solution found. Expected 30, but got 11.
+LOG: Done 0086. Incorrect solution found. Expected 61, but got 16.
+LOG: Done 0087. Incorrect solution found. Expected 112, but got 22.
+LOG: Done 0088. Incorrect solution found. Expected 190, but got 29.
+LOG: Done 0089. Incorrect solution found. Expected 303, but got 37.
+LOG: Done 0090. Incorrect solution found. Expected 460, but got 46.
+LOG: Done 0091. Correct solution found.
+LOG: Done 0092. Correct solution found.
+LOG: Done 0093. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0094. Incorrect solution found. Expected 13, but got 7.
+LOG: Done 0095. Incorrect solution found. Expected 31, but got 11.
+LOG: Done 0096. Incorrect solution found. Expected 66, but got 16.
+LOG: Done 0097. Incorrect solution found. Expected 127, but got 22.
+LOG: Done 0098. Incorrect solution found. Expected 225, but got 29.
+LOG: Done 0099. Incorrect solution found. Expected 373, but got 37.
+LOG: Done 0100. Incorrect solution found. Expected 586, but got 46.
+LOG: Done 0101. Correct solution found.
+LOG: Done 0102. Correct solution found.
+LOG: Done 0103. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0104. Incorrect solution found. Expected 13, but got 7.
+LOG: Done 0105. Incorrect solution found. Expected 32, but got 11.
+LOG: Done 0106. Incorrect solution found. Expected 72, but got 16.
+LOG: Done 0107. Incorrect solution found. Expected 148, but got 22.
+LOG: Done 0108. Incorrect solution found. Expected 281, but got 29.
+LOG: Done 0109. Incorrect solution found. Expected 499, but got 37.
+LOG: Done 0110. Incorrect solution found. Expected 838, but got 46.
+LOG: Done 0111. Correct solution found.
+LOG: Done 0112. Correct solution found.
+LOG: Done 0113. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0114. Incorrect solution found. Expected 13, but got 4.
+LOG: Done 0115. Incorrect solution found. Expected 32, but got 0.
+LOG: Done 0116. Incorrect solution found. Expected 74, but got 0.
+LOG: Done 0117. Incorrect solution found. Expected 163, but got 0.
+LOG: Done 0118. Incorrect solution found. Expected 347, but got 0.
+LOG: Done 0119. Incorrect solution found. Expected 722, but got 0.
+LOG: Done 0120. Incorrect solution found. Expected 1480, but got 0.
+LOG: Done 0121. Correct solution found.
+LOG: Done 0122. Correct solution found.
+LOG: Done 0123. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0124. Incorrect solution found. Expected 13, but got 7.
+LOG: Done 0125. Incorrect solution found. Expected 33, but got 11.
+LOG: Done 0126. Incorrect solution found. Expected 80, but got 16.
+LOG: Done 0127. Incorrect solution found. Expected 185, but got 22.
+LOG: Done 0128. Incorrect solution found. Expected 411, but got 29.
+LOG: Done 0129. Incorrect solution found. Expected 885, but got 37.
+LOG: Done 0130. Incorrect solution found. Expected 1862, but got 46.
+LOG: Done 0131. Correct solution found.
+LOG: Done 0132. Correct solution found.
+LOG: Done 0133. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0134. Incorrect solution found. Expected 13, but got 7.
+LOG: Done 0135. Incorrect solution found. Expected 33, but got 11.
+LOG: Done 0136. Incorrect solution found. Expected 81, but got 16.
+LOG: Done 0137. Incorrect solution found. Expected 193, but got 22.
+LOG: Done 0138. Incorrect solution found. Expected 449, but got 29.
+LOG: Done 0139. Incorrect solution found. Expected 1025, but got 37.
+LOG: Done 0140. Incorrect solution found. Expected 2305, but got 46.
+LOG: Done 0141. Correct solution found.
+LOG: Done 0142. Correct solution found.
+LOG: Done 0143. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0144. Incorrect solution found. Expected 13, but got 7.
+LOG: Done 0145. Incorrect solution found. Expected 33, but got 11.
+LOG: Done 0146. Incorrect solution found. Expected 82, but got 16.
+LOG: Done 0147. Incorrect solution found. Expected 202, but got 22.
+LOG: Done 0148. Incorrect solution found. Expected 497, but got 29.
+LOG: Done 0149. Incorrect solution found. Expected 1224, but got 37.
+LOG: Done 0150. Incorrect solution found. Expected 3017, but got 46.
+LOG: Done 0151. Correct solution found.
+LOG: Done 0152. Correct solution found.
+LOG: Done 0153. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0154. Incorrect solution found. Expected 13, but got 4.
+LOG: Done 0155. Incorrect solution found. Expected 34, but got 0.
+LOG: Done 0156. Incorrect solution found. Expected 89, but got 0.
+LOG: Done 0157. Incorrect solution found. Expected 233, but got 0.
+LOG: Done 0158. Incorrect solution found. Expected 610, but got 0.
+LOG: Done 0159. Incorrect solution found. Expected 1597, but got 0.
+LOG: Done 0160. Incorrect solution found. Expected 4181, but got 0.
+LOG: Done 0161. Correct solution found.
+LOG: Done 0162. Correct solution found.
+LOG: Done 0163. Incorrect solution found. Expected 6, but got 4.
+LOG: Done 0164. Incorrect solution found. Expected 22, but got 4.
+LOG: Done 0165. Incorrect solution found. Expected 86, but got 0.
+LOG: Done 0166. Incorrect solution found. Expected 306, but got 0.
+LOG: Done 0167. Incorrect solution found. Expected 882, but got 0.
+LOG: Done 0168. Incorrect solution found. Expected 1764, but got 0.
+LOG: Done 0169. Incorrect solution found. Expected 1764, but got 0.
+LOG: Done 0170. Correct solution found.
+LOG: Done 0171. Correct solution found.
+LOG: Done 0172. Correct solution found.
+LOG: Done 0173. Incorrect solution found. Expected 6, but got 4.
+LOG: Done 0174. Incorrect solution found. Expected 22, but got 4.
+LOG: Done 0175. Incorrect solution found. Expected 86, but got 0.
+LOG: Done 0176. Incorrect solution found. Expected 321, but got 0.
+LOG: Done 0177. Incorrect solution found. Expected 1085, but got 0.
+LOG: Done 0178. Incorrect solution found. Expected 3266, but got 0.
+LOG: Done 0179. Incorrect solution found. Expected 8797, but got 0.
+LOG: Done 0180. Incorrect solution found. Expected 21478, but got 0.
+python3 run.py  446.80s user 50.94s system 161% cpu 5:08.46 total
+    ~/r/gi/ru/permutation-classes-cp  on   main ⇡1 !1 ?1  time python3 run.py                                                       ✔  took 5m 8s 
+LOG: Generated param files
+LOG: Generated E'
+LOG: Done 0000. Correct solution found.
+LOG: Done 0001. Correct solution found.
+LOG: Done 0002. Correct solution found.
+LOG: Done 0003. Correct solution found.
+LOG: Done 0004. Correct solution found.
+LOG: Done 0005. Correct solution found.
+LOG: Done 0006. Correct solution found.
+LOG: Done 0007. Correct solution found.
+LOG: Done 0008. Correct solution found.
+LOG: Done 0009. Correct solution found.
+LOG: Done 0010. Correct solution found.
+LOG: Done 0011. Correct solution found.
+LOG: Done 0012. Incorrect solution found. Expected 6, but got 5.
+LOG: Done 0013. Incorrect solution found. Expected 23, but got 14.
+LOG: Done 0014. Incorrect solution found. Expected 103, but got 42.
+LOG: Done 0015. Incorrect solution found. Expected 512, but got 132.
+LOG: Done 0016. Incorrect solution found. Expected 2740, but got 429.
+LOG: Done 0017. Incorrect solution found. Expected 15485, but got 1430.
+LOG: Done 0018. Incorrect solution found. Expected 91245, but got 4862.
+LOG: Done 0019. Incorrect solution found. Expected 555662, but got 16796.
+LOG: Done 0020. Correct solution found.
+LOG: Done 0021. Correct solution found.
+LOG: Done 0022. Incorrect solution found. Expected 6, but got 5.
+LOG: Done 0023. Incorrect solution found. Expected 23, but got 14.
+LOG: Done 0024. Incorrect solution found. Expected 103, but got 42.
+LOG: Done 0025. Incorrect solution found. Expected 513, but got 132.
+LOG: Done 0026. Incorrect solution found. Expected 2761, but got 429.
+LOG: Done 0027. Incorrect solution found. Expected 15767, but got 1430.
+LOG: Done 0028. Incorrect solution found. Expected 94359, but got 4862.
+LOG: Done 0029. Incorrect solution found. Expected 586590, but got 16796.
+LOG: Done 0030. Correct solution found.
+LOG: Done 0031. Correct solution found.
+LOG: Done 0032. Incorrect solution found. Expected 6, but got 5.
+LOG: Done 0033. Incorrect solution found. Expected 23, but got 14.
+LOG: Done 0034. Incorrect solution found. Expected 103, but got 42.
+LOG: Done 0035. Incorrect solution found. Expected 513, but got 132.
+LOG: Done 0036. Incorrect solution found. Expected 2762, but got 429.
+LOG: Done 0037. Incorrect solution found. Expected 15793, but got 1430.
+LOG: Done 0038. Incorrect solution found. Expected 94776, but got 4862.
+LOG: Done 0039. Incorrect solution found. Expected 591950, but got 16796.
+LOG: Done 0040. Expected Unknown, found NONE.
+LOG: Done 0041. Correct solution found.
+LOG: Done 0042. Correct solution found.
+LOG: Done 0043. Correct solution found.
+LOG: Done 0044. Correct solution found.
+LOG: Done 0045. Correct solution found.
+LOG: Done 0046. Correct solution found.
+LOG: Done 0047. Correct solution found.
+LOG: Done 0048. Correct solution found.
+LOG: Done 0049. Correct solution found.
+LOG: Done 0050. Correct solution found.
+LOG: Done 0051. Correct solution found.
+LOG: Done 0052. Correct solution found.
+LOG: Done 0053. Correct solution found.
+LOG: Done 0054. Correct solution found.
+LOG: Done 0055. Correct solution found.
+LOG: Done 0056. Correct solution found.
+LOG: Done 0057. Correct solution found.
+LOG: Done 0058. Correct solution found.
+LOG: Done 0059. Correct solution found.
+LOG: Done 0060. Correct solution found.
+LOG: Done 0061. Correct solution found.
+LOG: Done 0062. Correct solution found.
+LOG: Done 0063. Correct solution found.
+LOG: Done 0064. Correct solution found.
+LOG: Done 0065. Correct solution found.
+LOG: Done 0066. Correct solution found.
+LOG: Done 0067. Correct solution found.
+LOG: Done 0068. Correct solution found.
+LOG: Done 0069. Correct solution found.
+LOG: Done 0070. Incorrect solution found. Expected 521, but got 512.
+LOG: Done 0071. Correct solution found.
+LOG: Done 0072. Correct solution found.
+LOG: Done 0073. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0074. Incorrect solution found. Expected 13, but got 4.
+LOG: Done 0075. Incorrect solution found. Expected 25, but got 0.
+LOG: Done 0076. Incorrect solution found. Expected 25, but got 0.
+LOG: Done 0077. Correct solution found.
+LOG: Done 0078. Correct solution found.
+LOG: Done 0079. Correct solution found.
+LOG: Done 0080. Correct solution found.
+LOG: Done 0081. Correct solution found.
+LOG: Done 0082. Correct solution found.
+LOG: Done 0083. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0084. Incorrect solution found. Expected 13, but got 7.
+LOG: Done 0085. Incorrect solution found. Expected 30, but got 11.
+LOG: Done 0086. Incorrect solution found. Expected 61, but got 16.
+LOG: Done 0087. Incorrect solution found. Expected 112, but got 22.
+LOG: Done 0088. Incorrect solution found. Expected 190, but got 29.
+LOG: Done 0089. Incorrect solution found. Expected 303, but got 37.
+LOG: Done 0090. Incorrect solution found. Expected 460, but got 46.
+LOG: Done 0091. Correct solution found.
+LOG: Done 0092. Correct solution found.
+LOG: Done 0093. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0094. Incorrect solution found. Expected 13, but got 7.
+LOG: Done 0095. Incorrect solution found. Expected 31, but got 11.
+LOG: Done 0096. Incorrect solution found. Expected 66, but got 16.
+LOG: Done 0097. Incorrect solution found. Expected 127, but got 22.
+LOG: Done 0098. Incorrect solution found. Expected 225, but got 29.
+LOG: Done 0099. Incorrect solution found. Expected 373, but got 37.
+LOG: Done 0100. Incorrect solution found. Expected 586, but got 46.
+LOG: Done 0101. Correct solution found.
+LOG: Done 0102. Correct solution found.
+LOG: Done 0103. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0104. Incorrect solution found. Expected 13, but got 7.
+LOG: Done 0105. Incorrect solution found. Expected 32, but got 11.
+LOG: Done 0106. Incorrect solution found. Expected 72, but got 16.
+LOG: Done 0107. Incorrect solution found. Expected 148, but got 22.
+LOG: Done 0108. Incorrect solution found. Expected 281, but got 29.
+LOG: Done 0109. Incorrect solution found. Expected 499, but got 37.
+LOG: Done 0110. Incorrect solution found. Expected 838, but got 46.
+LOG: Done 0111. Correct solution found.
+LOG: Done 0112. Correct solution found.
+LOG: Done 0113. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0114. Incorrect solution found. Expected 13, but got 4.
+LOG: Done 0115. Incorrect solution found. Expected 32, but got 0.
+LOG: Done 0116. Incorrect solution found. Expected 74, but got 0.
+LOG: Done 0117. Incorrect solution found. Expected 163, but got 0.
+LOG: Done 0118. Incorrect solution found. Expected 347, but got 0.
+LOG: Done 0119. Incorrect solution found. Expected 722, but got 0.
+LOG: Done 0120. Incorrect solution found. Expected 1480, but got 0.
+LOG: Done 0121. Correct solution found.
+LOG: Done 0122. Correct solution found.
+LOG: Done 0123. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0124. Incorrect solution found. Expected 13, but got 7.
+LOG: Done 0125. Incorrect solution found. Expected 33, but got 11.
+LOG: Done 0126. Incorrect solution found. Expected 80, but got 16.
+LOG: Done 0127. Incorrect solution found. Expected 185, but got 22.
+LOG: Done 0128. Incorrect solution found. Expected 411, but got 29.
+LOG: Done 0129. Incorrect solution found. Expected 885, but got 37.
+LOG: Done 0130. Incorrect solution found. Expected 1862, but got 46.
+LOG: Done 0131. Correct solution found.
+LOG: Done 0132. Correct solution found.
+LOG: Done 0133. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0134. Incorrect solution found. Expected 13, but got 7.
+LOG: Done 0135. Incorrect solution found. Expected 33, but got 11.
+LOG: Done 0136. Incorrect solution found. Expected 81, but got 16.
+LOG: Done 0137. Incorrect solution found. Expected 193, but got 22.
+LOG: Done 0138. Incorrect solution found. Expected 449, but got 29.
+LOG: Done 0139. Incorrect solution found. Expected 1025, but got 37.
+LOG: Done 0140. Incorrect solution found. Expected 2305, but got 46.
+LOG: Done 0141. Correct solution found.
+LOG: Done 0142. Correct solution found.
+LOG: Done 0143. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0144. Incorrect solution found. Expected 13, but got 7.
+LOG: Done 0145. Incorrect solution found. Expected 33, but got 11.
+LOG: Done 0146. Incorrect solution found. Expected 82, but got 16.
+LOG: Done 0147. Incorrect solution found. Expected 202, but got 22.
+LOG: Done 0148. Incorrect solution found. Expected 497, but got 29.
+LOG: Done 0149. Incorrect solution found. Expected 1224, but got 37.
+LOG: Done 0150. Incorrect solution found. Expected 3017, but got 46.
+LOG: Done 0151. Correct solution found.
+LOG: Done 0152. Correct solution found.
+LOG: Done 0153. Incorrect solution found. Expected 5, but got 4.
+LOG: Done 0154. Incorrect solution found. Expected 13, but got 4.
+LOG: Done 0155. Incorrect solution found. Expected 34, but got 0.
+LOG: Done 0156. Incorrect solution found. Expected 89, but got 0.
+LOG: Done 0157. Incorrect solution found. Expected 233, but got 0.
+LOG: Done 0158. Incorrect solution found. Expected 610, but got 0.
+LOG: Done 0159. Incorrect solution found. Expected 1597, but got 0.
+LOG: Done 0160. Incorrect solution found. Expected 4181, but got 0.
+LOG: Done 0161. Correct solution found.
+LOG: Done 0162. Correct solution found.
+LOG: Done 0163. Incorrect solution found. Expected 6, but got 4.
+LOG: Done 0164. Incorrect solution found. Expected 22, but got 4.
+LOG: Done 0165. Incorrect solution found. Expected 86, but got 0.
+LOG: Done 0166. Incorrect solution found. Expected 306, but got 0.
+LOG: Done 0167. Incorrect solution found. Expected 882, but got 0.
+LOG: Done 0168. Incorrect solution found. Expected 1764, but got 0.
+LOG: Done 0169. Incorrect solution found. Expected 1764, but got 0.
+LOG: Done 0170. Correct solution found.
+LOG: Done 0171. Correct solution found.
+LOG: Done 0172. Correct solution found.
+LOG: Done 0173. Incorrect solution found. Expected 6, but got 4.
+LOG: Done 0174. Incorrect solution found. Expected 22, but got 4.
+LOG: Done 0175. Incorrect solution found. Expected 86, but got 0.
+LOG: Done 0176. Incorrect solution found. Expected 321, but got 0.
+LOG: Done 0177. Incorrect solution found. Expected 1085, but got 0.
+LOG: Done 0178. Incorrect solution found. Expected 3266, but got 0.
+LOG: Done 0179. Incorrect solution found. Expected 8797, but got 0.
+LOG: Done 0180. Incorrect solution found. Expected 21478, but got 0.
+python3 run.py  527.36s user 45.80s system 145% cpu 6:34.92 total

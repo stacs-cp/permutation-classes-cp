@@ -4,6 +4,18 @@ import json, subprocess, sys, csv
 def log(s):
     print("LOG: %s" % s)
 
+def save(fieldNames, stats):
+    with open("logs.csv", "w") as csvfile:
+        writer = csv.DictWriter( csvfile, fieldNames
+                               , delimiter = ','
+                               , quotechar = '"'
+                               , quoting = csv.QUOTE_MINIMAL
+                               )
+        writer.writeheader()
+        for _, pStats in stats.items():
+            writer.writerow(pStats)
+
+
 
 # Convert to param files
 ################################################################################
@@ -40,6 +52,7 @@ subprocess.run(["conjure", "modelling", "pc.essence", "-o", "conjure-output"])
 log("Generated E'")
 
 
+
 # Solve
 ################################################################################
 
@@ -68,10 +81,12 @@ for paramFile in paramFiles:
     subprocess.run([ "savilerow"
                    , "conjure-output/model000001.eprime"
                    , "conjure-output/%s.param" % paramFile
+                   , "-timelimit", "120"
                    ], capture_output=True)
     out = subprocess.run([ "minion"
                          , "-findallsols"
                          , "-noprintsols"
+                         , "-cpulimit", "120"
                          , "conjure-output/%s.param.minion" % paramFile
                          ], capture_output=True)
     stdoutLines = out.stdout.decode("utf-8").split("\n")
@@ -84,26 +99,29 @@ for paramFile in paramFiles:
                 stats[paramFile][parts[0]] = parts[1]
 
     # some logging
-    nbSolutions = int(stats[paramFile]["Solutions Found"])
-    if nbSolutions == knownSolutions[paramFile]:
-        log("Solved %s. Correct solution found" % paramFile)
-        stats[paramFile]["correct"] = "yes"
+    if "Solutions Found" in stats[paramFile].keys():
+        nbSolutions = stats[paramFile]["Solutions Found"]
+        if knownSolutions[paramFile] == "Unknown":
+            log("Done %s. Found %d solutions." % (paramFile, nbSolutions))
+            stats[paramFile]["correct"] = "Not checked"
+        else:
+            nbSolutions = int(nbSolutions)
+            if nbSolutions == knownSolutions[paramFile]:
+                log("Done %s. Correct solution found." % paramFile)
+                stats[paramFile]["correct"] = "Correct"
+            else:
+                log("Done %s. Incorrect solution found. Expected %d, but got %d." % (paramFile, knownSolutions[paramFile], nbSolutions))
+                stats[paramFile]["correct"] = "Incorrect"
     else:
-        log("Solved %s. Incorrect solution found. Expected %d, but got %d" % (paramFile, knownSolutions[paramFile], nbSolutions))
-        stats[paramFile]["correct"] = "no"
+        log("Done %s. Expected %s, found NONE." % (paramFile, knownSolutions[paramFile]))
+        stats[paramFile]["correct"] = "Not found"        
+
+    save(fieldNames, stats)
+
 
 
 # Save stats to file
 ################################################################################
 
-with open("logs.csv", "w") as csvfile:
-    writer = csv.DictWriter( csvfile, fieldNames
-                           , delimiter = ','
-                           , quotechar = '"'
-                           , quoting = csv.QUOTE_MINIMAL
-                           )
-    writer.writeheader()
-    for paramFile, pStats in stats.items():
-        writer.writerow(pStats)
-
+save(fieldNames, stats)
 

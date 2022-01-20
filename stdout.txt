@@ -1,4 +1,4 @@
-$ time python3 run.py                                                     INT ✘  took 41s 
+$ time python3 run.py
 LOG: Generated param files
 LOG: Generated E'
 LOG: Done 0000. Correct solution found.

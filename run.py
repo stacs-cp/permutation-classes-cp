@@ -58,23 +58,22 @@ log("Generated E'")
 
 stats = {}
 fieldNames = [ "instance"
-             , "correct"
+             , "Problem solvable?"
              , "Total Time"
              , "Total System Time"
              , "Total Wall Time"
-             , "Maximum RSS (kB)"
-             , "Total Nodes"
-             , "Problem solvable?"
-             , "Solutions Found"
              , "Wall time - Conjure translate param"
              , "Wall time - Savile Row"
              , "Wall time - Minion"
+             , "correct"
+             , "Maximum RSS (kB)"
+             , "Total Nodes"
+             , "Solutions Found"
              ]
 
 for paramFile in paramFiles:
     stats[paramFile] = {}
     stats[paramFile]["instance"] = paramFile
-
 
     startTime = time.time()
     subprocess.run([ "conjure"
@@ -83,7 +82,7 @@ for paramFile in paramFiles:
                    , "--essence-param", "params/%s.param" % paramFile
                    , "--eprime-param", "conjure-output/%s.param" % paramFile
                    ], capture_output=True)
-    stats[paramFile]["Wall time - Conjure translate param"] = time.time() - startTime
+    stats[paramFile]["Wall time - Conjure translate param"] = " %.6f" % (time.time() - startTime)
 
     startTime = time.time()
     subprocess.run([ "savilerow"
@@ -91,7 +90,7 @@ for paramFile in paramFiles:
                    , "conjure-output/%s.param" % paramFile
                    , "-timelimit", "120"
                    ], capture_output=True)
-    stats[paramFile]["Wall time - Savile Row"] = time.time() - startTime
+    stats[paramFile]["Wall time - Savile Row"] = " %.6f" % (time.time() - startTime)
 
     startTime = time.time()
     out = subprocess.run([ "minion"
@@ -100,7 +99,7 @@ for paramFile in paramFiles:
                          , "-cpulimit", "120"
                          , "conjure-output/%s.param.minion" % paramFile
                          ], capture_output=True)
-    stats[paramFile]["Wall time - Minion"] = time.time() - startTime
+    stats[paramFile]["Wall time - Minion"] = " %.6f" % (time.time() - startTime)
 
     stdoutLines = out.stdout.decode("utf-8").split("\n")
 

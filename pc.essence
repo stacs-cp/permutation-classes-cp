@@ -8,6 +8,6 @@ find perm : sequence (size length, injective) of int(1..length)
 such that
     forAll av in avoiding .
         !(exists ix : matrix indexed by [int(1..|av|)] of int(1..length) .
-            (forAll i,j : int(1..3) . i < j -> ix[i] < ix[j]) /\
-            (forAll n1, n2 : int(1..3) , n1 < n2 .
+            (forAll i,j : int(1..|av|) . i < j -> ix[i] < ix[j]) /\
+            (forAll n1, n2 : int(1..|av|) , n1 < n2 .
                 av(n1) < av(n2) <-> perm(ix[n1]) < perm(ix[n2])))

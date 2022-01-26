@@ -39,7 +39,6 @@
     { "avoiding": [[1,3,2,4]], "length": 8, "result": 15793, "formula":"Unknown"},
     { "avoiding": [[1,3,2,4]], "length": 9, "result": 94776, "formula":"Unknown"},
     { "avoiding": [[1,3,2,4]], "length": 10, "result": 591950, "formula":"Unknown"},
-    { "avoiding": [[1,3,2,4]], "length": 51, "result": "Unknown", "formula":"Unknown"},
     { "avoiding": [[1,2,3], [3,2,1]], "length": 1, "result": 1, "formula":"finite"},
     { "avoiding": [[1,2,3], [3,2,1]], "length": 2, "result": 2, "formula":"finite"},
     { "avoiding": [[1,2,3], [3,2,1]], "length": 3, "result": 4, "formula":"finite"},

@@ -1,0 +1,13 @@
+[
+    { "avoiding": [[1,3,2,4]], "length": 1, "result": 1, "formula":"Unknown"},
+    { "avoiding": [[1,3,2,4]], "length": 2, "result": 2, "formula":"Unknown"},
+    { "avoiding": [[1,3,2,4]], "length": 3, "result": 6, "formula":"Unknown"},
+    { "avoiding": [[1,3,2,4]], "length": 4, "result": 23, "formula":"Unknown"},
+    { "avoiding": [[1,3,2,4]], "length": 5, "result": 103, "formula":"Unknown"},
+    { "avoiding": [[1,3,2,4]], "length": 6, "result": 513, "formula":"Unknown"},
+    { "avoiding": [[1,3,2,4]], "length": 7, "result": 2762, "formula":"Unknown"},
+    { "avoiding": [[1,3,2,4]], "length": 8, "result": 15793, "formula":"Unknown"},
+    { "avoiding": [[1,3,2,4]], "length": 9, "result": 94776, "formula":"Unknown"},
+    { "avoiding": [[1,3,2,4]], "length": 10, "result": 591950, "formula":"Unknown"},
+    { "avoiding": [[1,3,2,4]], "length": 51, "result": "Unknown", "formula":"Unknown"}
+]

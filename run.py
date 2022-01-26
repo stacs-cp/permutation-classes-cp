@@ -22,17 +22,20 @@ def save(fieldNames, stats):
 
 knownSolutions = {}
 paramFiles = []
-with open("seqwiki.json", "r") as inp:
+with open("result-known.json", "r") as inp:
     raw = json.load(inp)
-    for n, obj in enumerate(raw):
+    for obj in raw:
         avoiding = obj["avoiding"]
         length = obj["length"]
         result = obj["result"]
         formula = obj["formula"]
 
-        paramFile = "params/%04d.param" % n
-        paramFiles.append("%04d" % n)
-        knownSolutions["%04d" % n] = result
+        name = "-".join([ "".join([str(x) for x in av]) for av in avoiding ])
+        name = "%s--%03d" % (name, length)
+
+        paramFile = "params/%s.param" % name
+        paramFiles.append("%s" % name)
+        knownSolutions["%s" % name] = result
 
         with open(paramFile, "w") as out:
             print("language Essence 1.3", file=out)

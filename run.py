@@ -83,7 +83,7 @@ for paramFile in paramFiles:
                    , "--essence-param", "params/%s.param" % paramFile
                    , "--eprime-param", "conjure-output/%s.param" % paramFile
                    ], capture_output=True)
-    stats["Wall time - Conjure translate param"] = time.time() - startTime
+    stats[paramFile]["Wall time - Conjure translate param"] = time.time() - startTime
 
     startTime = time.time()
     subprocess.run([ "savilerow"
@@ -91,7 +91,7 @@ for paramFile in paramFiles:
                    , "conjure-output/%s.param" % paramFile
                    , "-timelimit", "120"
                    ], capture_output=True)
-    stats["Wall time - Savile Row"] = time.time() - startTime
+    stats[paramFile]["Wall time - Savile Row"] = time.time() - startTime
 
     startTime = time.time()
     out = subprocess.run([ "minion"
@@ -100,7 +100,7 @@ for paramFile in paramFiles:
                          , "-cpulimit", "120"
                          , "conjure-output/%s.param.minion" % paramFile
                          ], capture_output=True)
-    stats["Wall time - Minion"] = time.time() - startTime
+    stats[paramFile]["Wall time - Minion"] = time.time() - startTime
 
     stdoutLines = out.stdout.decode("utf-8").split("\n")
 

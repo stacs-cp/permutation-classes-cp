@@ -1,4 +1,4 @@
-import json, subprocess, sys, csv
+import json, subprocess, sys, csv, time
 
 
 def log(s):
@@ -66,29 +66,42 @@ fieldNames = [ "instance"
              , "Total Nodes"
              , "Problem solvable?"
              , "Solutions Found"
+             , "Wall time - Conjure translate param"
+             , "Wall time - Savile Row"
+             , "Wall time - Minion"
              ]
 
 for paramFile in paramFiles:
     stats[paramFile] = {}
     stats[paramFile]["instance"] = paramFile
 
+
+    startTime = time.time()
     subprocess.run([ "conjure"
                    , "translate-param"
                    , "--eprime", "conjure-output/model000001.eprime"
                    , "--essence-param", "params/%s.param" % paramFile
                    , "--eprime-param", "conjure-output/%s.param" % paramFile
                    ], capture_output=True)
+    stats["Wall time - Conjure translate param"] = time.time() - startTime
+
+    startTime = time.time()
     subprocess.run([ "savilerow"
                    , "conjure-output/model000001.eprime"
                    , "conjure-output/%s.param" % paramFile
                    , "-timelimit", "120"
                    ], capture_output=True)
+    stats["Wall time - Savile Row"] = time.time() - startTime
+
+    startTime = time.time()
     out = subprocess.run([ "minion"
                          , "-findallsols"
                          , "-noprintsols"
                          , "-cpulimit", "120"
                          , "conjure-output/%s.param.minion" % paramFile
                          ], capture_output=True)
+    stats["Wall time - Minion"] = time.time() - startTime
+
     stdoutLines = out.stdout.decode("utf-8").split("\n")
 
     # capturing the output

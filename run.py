@@ -2,6 +2,7 @@ import json, subprocess, sys, csv, time
 
 jsonFile = "result-known.json"
 solver = sys.argv[1]
+outputFolder = "conjure-output-%s" % solver
 
 def log(s):
     print("LOG: %s" % s)
@@ -52,8 +53,8 @@ log("Generated param files")
 
 
 # Generate E'
-subprocess.run(["rm", "-rf", "conjure-output"])
-subprocess.run(["conjure", "modelling", "pc.essence", "-o", "conjure-output"])
+subprocess.run(["rm", "-rf", outputFolder])
+subprocess.run(["conjure", "modelling", "pc.essence", "-o", outputFolder])
 log("Generated E'")
 
 
@@ -81,9 +82,9 @@ for paramFile in paramFiles:
     startTime = time.time()
     subprocess.run([ "conjure"
                    , "translate-param"
-                   , "--eprime", "conjure-output/model000001.eprime"
+                   , "--eprime", "%s/model000001.eprime" % outputFolder
                    , "--essence-param", "params/%s.param" % paramFile
-                   , "--eprime-param", "conjure-output/%s.param" % paramFile
+                   , "--eprime-param", "%s/%s.param" % (outputFolder, paramFile)
                    ], capture_output=True)
     stats[paramFile]["Wall time - Conjure translate param"] = " %.2f" % (time.time() - startTime)
 
@@ -91,8 +92,8 @@ for paramFile in paramFiles:
         stats[paramFile]["solver"] = "minion"
         startTime = time.time()
         subprocess.run([ "savilerow"
-                       , "conjure-output/model000001.eprime"
-                       , "conjure-output/%s.param" % paramFile
+                       , "%s/model000001.eprime" % outputFolder
+                       , "%s/%s.param" % (outputFolder, paramFile)
                        , "-timelimit", "120"
                        ], capture_output=True)
         stats[paramFile]["Wall time - Savile Row"] = " %.2f" % (time.time() - startTime)
@@ -101,16 +102,15 @@ for paramFile in paramFiles:
         out = subprocess.run([ "minion"
                              , "-findallsols"
                              , "-noprintsols"
-                             , "-cpulimit", "120"
-                             , "conjure-output/%s.param.minion" % paramFile
+                             , "%s/%s.param.minion" % (outputFolder, paramFile)
                              ], capture_output=True)
         stats[paramFile]["Wall time - Solver"] = " %.2f" % (time.time() - startTime)
     elif solver == "sat":
         stats[paramFile]["solver"] = "sat"
         startTime = time.time()
         subprocess.run([ "savilerow"
-                       , "conjure-output/model000001.eprime"
-                       , "conjure-output/%s.param" % paramFile
+                       , "%s/model000001.eprime" % outputFolder
+                       , "%s/%s.param" % (outputFolder, paramFile)
                        , "-sat"
                        , "-timelimit", "120"
                        ], capture_output=True)
@@ -118,7 +118,7 @@ for paramFile in paramFiles:
 
         startTime = time.time()
         out = subprocess.run([ "nbc_minisat_all_release"
-                             , "conjure-output/%s.param.dimacs" % paramFile
+                             , "%s/%s.param.dimacs" % (outputFolder, paramFile)
                              ], capture_output=True)
         stats[paramFile]["Wall time - Solver"] = " %.2f" % (time.time() - startTime)
 

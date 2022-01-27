@@ -1,11 +1,13 @@
 import json, subprocess, sys, csv, time
 
+jsonFile = "result-known.json"
+solver = sys.argv[1]
 
 def log(s):
     print("LOG: %s" % s)
 
 def save(fieldNames, stats):
-    with open("logs.csv", "w") as csvfile:
+    with open("logs-%s.csv" % solver, "w") as csvfile:
         writer = csv.DictWriter( csvfile, fieldNames
                                , delimiter = ','
                                , quotechar = '"'
@@ -22,7 +24,7 @@ def save(fieldNames, stats):
 
 knownSolutions = {}
 paramFiles = []
-with open("result-known.json", "r") as inp:
+with open(jsonFile, "r") as inp:
     raw = json.load(inp)
     for obj in raw:
         avoiding = obj["avoiding"]
@@ -61,18 +63,16 @@ log("Generated E'")
 
 stats = {}
 fieldNames = [ "instance"
-             , "Problem solvable?"
-             , "Total Time"
-             , "Total System Time"
-             , "Total Wall Time"
+             , "solver"
              , "Wall time - Conjure translate param"
              , "Wall time - Savile Row"
-             , "Wall time - Minion"
+             , "Wall time - Solver"
              , "correct"
-             , "Maximum RSS (kB)"
              , "Total Nodes"
              , "Solutions Found"
              ]
+
+
 
 for paramFile in paramFiles:
     stats[paramFile] = {}
@@ -85,24 +85,42 @@ for paramFile in paramFiles:
                    , "--essence-param", "params/%s.param" % paramFile
                    , "--eprime-param", "conjure-output/%s.param" % paramFile
                    ], capture_output=True)
-    stats[paramFile]["Wall time - Conjure translate param"] = " %.6f" % (time.time() - startTime)
+    stats[paramFile]["Wall time - Conjure translate param"] = " %.2f" % (time.time() - startTime)
 
-    startTime = time.time()
-    subprocess.run([ "savilerow"
-                   , "conjure-output/model000001.eprime"
-                   , "conjure-output/%s.param" % paramFile
-                   , "-timelimit", "120"
-                   ], capture_output=True)
-    stats[paramFile]["Wall time - Savile Row"] = " %.6f" % (time.time() - startTime)
+    if solver == "minion":
+        stats[paramFile]["solver"] = "minion"
+        startTime = time.time()
+        subprocess.run([ "savilerow"
+                       , "conjure-output/model000001.eprime"
+                       , "conjure-output/%s.param" % paramFile
+                       , "-timelimit", "120"
+                       ], capture_output=True)
+        stats[paramFile]["Wall time - Savile Row"] = " %.2f" % (time.time() - startTime)
 
-    startTime = time.time()
-    out = subprocess.run([ "minion"
-                         , "-findallsols"
-                         , "-noprintsols"
-                         , "-cpulimit", "120"
-                         , "conjure-output/%s.param.minion" % paramFile
-                         ], capture_output=True)
-    stats[paramFile]["Wall time - Minion"] = " %.6f" % (time.time() - startTime)
+        startTime = time.time()
+        out = subprocess.run([ "minion"
+                             , "-findallsols"
+                             , "-noprintsols"
+                             , "-cpulimit", "120"
+                             , "conjure-output/%s.param.minion" % paramFile
+                             ], capture_output=True)
+        stats[paramFile]["Wall time - Solver"] = " %.2f" % (time.time() - startTime)
+    elif solver == "sat":
+        stats[paramFile]["solver"] = "sat"
+        startTime = time.time()
+        subprocess.run([ "savilerow"
+                       , "conjure-output/model000001.eprime"
+                       , "conjure-output/%s.param" % paramFile
+                       , "-sat"
+                       , "-timelimit", "120"
+                       ], capture_output=True)
+        stats[paramFile]["Wall time - Savile Row"] = " %.2f" % (time.time() - startTime)
+
+        startTime = time.time()
+        out = subprocess.run([ "nbc_minisat_all_release"
+                             , "conjure-output/%s.param.dimacs" % paramFile
+                             ], capture_output=True)
+        stats[paramFile]["Wall time - Solver"] = " %.2f" % (time.time() - startTime)
 
     stdoutLines = out.stdout.decode("utf-8").split("\n")
 
@@ -110,8 +128,11 @@ for paramFile in paramFiles:
     for l in stdoutLines:
         parts = l.split(":")
         if len(parts) == 2:
-            if parts[0] in fieldNames:
-                stats[paramFile][parts[0]] = parts[1]
+            parts[0] = parts[0].strip()
+            if parts[0] == "SAT (full)":
+                parts[0] = "Solutions Found"
+        if parts[0] in fieldNames:
+            stats[paramFile][parts[0]] = parts[1]
 
     # some logging
     if "Solutions Found" in stats[paramFile].keys():

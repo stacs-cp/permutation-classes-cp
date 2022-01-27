@@ -180,4 +180,4 @@ LOG: Done 4312-1234--007. Correct solution found.
 LOG: Done 4312-1234--008. Correct solution found.
 LOG: Done 4312-1234--009. Correct solution found.
 LOG: Done 4312-1234--010. Correct solution found.
-python3 -u run.py  492.79s user 60.66s system 142% cpu 6:27.84 total
+python3 -u run.py minion  482.09s user 55.62s system 138% cpu 6:27.42 total

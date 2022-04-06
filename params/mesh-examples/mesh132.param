@@ -1,15 +1,26 @@
 language Essence 1.3
 
-letting length be 5
-letting avoiding be {sequence(1,3,2)}
-letting mesh be [
-    [0,0,0,0],
-    [0,0,0,1],
-    [1,0,0,1],
-    [0,0,0,0]
-    ]
+letting length be 4
+letting avoiding be { ( sequence(1,2,3), relation((0,0)))}
 
-$ Assume we are trying to find the pattern/mesh in a target permutation T
-$ first identify the classical pattern P (avoiding) in T (T[i1]..T[ik])
-$ then for each 1 at (x,y) in the mesh matrix we are saying that there is no j (1<=j<=|T|) where 
-$ ix < j < ix+1 (so it is between the indexes of the identified pattern in T) and T(i[P^-1[y]])< T(j) < T(i[P^-1[y+1]]) 
+
+$  [[0,0,1,0],
+$                                           [0,1,0,0],
+$                                           [0,0,0,1],
+$                                           [0,1,0,1]] ) }
+
+
+$ $ Assume we are trying to find the pattern/mesh in a target permutation T
+$ $ first identify the classical pattern P (avoiding) in T (T[i1]..T[ik])
+$ $ then for each 1 at (x,y) in the mesh matrix we are saying that there is no j (1<=j<=|T|) where 
+$ $ ix < j < ix+1 (so it is between the indexes of the identified pattern in T) and T(i[P^-1[y]])< T(j) < T(i[P^-1[y+1]]) 
+
+
+$ ---1--
+$ ---1--
+$ 111111
+$ 111111
+$ ------
+
+
+

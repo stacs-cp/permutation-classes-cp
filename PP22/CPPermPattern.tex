@@ -105,6 +105,8 @@
 % !!!!!!!!!
 % Put here your personal commands
 % !!!!!!!!!
+\newcommand{\Essence}{{Essence}\xspace}
+\newcommand{\conjure}{\texttt{Conjure}\xspace}
 % ----------- End: Your own \newcommand
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -121,7 +123,19 @@
 \jointwork{\"{O}zg\"{u}r Akg\"{u}n, Chris Jefferson}
 
 % Short description
-Constraint programming is a powerful way of 
+
+Constraint programming is a proven technology for solving complex combinatorial decision, optimisation or enumeration problems. 
+Constraints are a natural, powerful means of representing and reasoning about complex problems that impact all of our lives.
+Constraint programming offers a means by which solutions to such problems can be found automatically, and proceeds in two phases. 
+First, the problem is modelled as a set of decision variables, and a set of constraints on those variables that a solution must satisfy. 
+A decision variable represents a choice that must be made in order to solve the problem. 
+The domain of potential values associated with each decision variable corresponds to the options for that choice.
+
+Enumerating permutations avoiding mesh (or other) patterns lends itself perfectly to constraint programming.
+We have created a model which represents the definition of a mesh pattern in \Essence and used \Conjure to enumerate the permutations.
+
+We will share the model, and give insights into how it works, as well as present results to show how competitive constraint programming can be with fast algorithms for NP-complete problems.
+
 
 % \begin{figure}[h]
 % % Here you can include a picture (.pdf, .png,...) with \includegraphics[]{} or a tikz plot:

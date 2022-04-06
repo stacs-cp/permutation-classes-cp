@@ -32,9 +32,8 @@ such that
             (   
                 exists i,j: int(0..|av|).
                     (i,j) in mesh /\
-                    $ the box ix[i]..ix[i+1], values perm(ix[j])..perm(ix[j]) is empty.
-                    forAll z: int(ix[i]+1..ix[i+1]-1).
-                        !(perm[z] >= perm[ix[avinv[j]]] /\ perm[z] <= perm[ix[avinv[j]+1]])
+                    $ the box ix[i]..ix[i+1], values perm(ix[j])..perm(ix[j]) contains something.
+                    exists z: int(ix[i]+1..ix[i+1]-1). (perm[ix[avinv[j]]] <= perm[z] /\ perm[z] <= perm[ix[avinv[j]+1]])
             )
 
 

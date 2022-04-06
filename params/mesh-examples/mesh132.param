@@ -8,3 +8,8 @@ letting mesh be [
     [1,0,0,1],
     [0,0,0,0]
     ]
+
+$ Assume we are trying to find the pattern/mesh in a target permutation T
+$ first identify the classical pattern P (avoiding) in T (T[i1]..T[ik])
+$ then for each 1 at (x,y) in the mesh matrix we are saying that there is no j (1<=j<=|T|) where 
+$ ix < j < ix+1 (so it is between the indexes of the identified pattern in T) and T(i[P[y]])< T(j) < T(i[P[y+1]]) 

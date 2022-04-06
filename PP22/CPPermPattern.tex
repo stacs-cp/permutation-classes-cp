@@ -1,0 +1,167 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[sc]{mathpazo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% Header: Please do not modify  !!!!
+% (see below if you need to add some \newcommand)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beginning: appearance
+\usepackage[includefoot]{geometry}
+\geometry{paperwidth=7in, paperheight=10.5in, vmargin=0.6in, inner=0.75in, outer=0.5in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+\pagestyle{plain}
+% ----------- End: appearance
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beginning: ams
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+% ----------- End: ams
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beginning: tikz libraries
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+%\usepackage{tkz-graph}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{automata}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+% ----------- End: Theorems, Definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beginning: misc.
+\usepackage{pdfpages}
+
+\usepackage{pifont}
+\usepackage{forest}
+
+\usepackage{multirow,multicol,enumitem}
+
+\usepackage{ytableau}
+\usepackage{bm}
+\usepackage{bbm}
+
+\usepackage{caption}
+\usepackage{mathrsfs}
+% ----------- End: misc.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beginning: Theorems, Definitions,
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{question}[theorem]{Question}
+%
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+%
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+% ----------- End: Theorems, Definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beginning: Custom title/name etc entries
+\usepackage{titlesec}
+\titleformat{\section}{\Large\sc\linespread{0.75}\selectfont\hyphenchar\font=-1\relax}{}{0em}%
+{}[\vspace{-8pt}\rule{1.0\textwidth}{1pt}\vspace{-10pt}]
+\titleformat{\subsection}{\large\bf}{}{0em}{}
+\titlespacing{\section}{0em}{2em}{0em}
+
+\newcommand{\name}[1]{\noindent {\it #1}\medskip}
+\newcommand{\adr}[1]{\hfill {#1}}
+\newcommand{\jointwork}[1]{\noindent {\it This talk is based on joint work with #1}\medskip}
+% ----------- End: Custom title/name etc entries
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% End of the Header
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beginning: Your own \newcommand
+% !!!!!!!!!
+% Put here your personal commands
+% !!!!!!!!!
+% ----------- End: Your own \newcommand
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+% Title of the contribution:
+\section*{Using Constraint Programming to Enumerate Permutations avoiding Mesh Patterns}
+% Author:
+  \name{Ruth Hoffmann}
+    \adr{University of St Andrews}
+
+% Co-authors:
+\jointwork{\"{O}zg\"{u}r Akg\"{u}n, Chris Jefferson}
+
+% Short description
+Constraint programming is a powerful way of 
+
+% \begin{figure}[h]
+% % Here you can include a picture (.pdf, .png,...) with \includegraphics[]{} or a tikz plot:
+% \begin{center}
+% \begin{tikzpicture}
+% \tikz{ \draw (0,0) -- (1,1); \draw (0,1) -- (1,0)}
+% \end{tikzpicture}
+% \end{center}
+% \caption{My caption}
+% \label{fig:results}
+% \end{figure}
+
+% Figure \ref{fig:results} sheds some new light on this challenging issue.
+
+% \subsection*{My first Section}
+
+% Let us recall an important definition:
+% \begin{definition}
+% For $\Re(s)>-1$, we put
+% $$
+% \zeta(s)=\sum_{n\geq 0}\frac{1}{n^s}.
+% $$
+% \end{definition}
+
+
+% We can state our main contribution:
+% \begin{theorem}
+% All the non-trivial zeros of $s\mapsto \zeta(s)$ lie on the critical line $\Re(s)=1/2$.
+% \end{theorem}
+
+% \subsection*{My second Section}
+
+% \begin{remark}
+% Unfortunately, space is lacking for a complete proof. Instead, I can cite a book \cite{MR2445243} or an article \cite{MR1544457}.
+% \end{remark}
+
+
+% \begin{thebibliography}{99}
+% \bibitem{MR2445243} G.H.Hardy, and E.M. Wright, E. M. \emph{An introduction to the theory of numbers} 6th edition (2008). Oxford University Press.
+% \bibitem{MR1544457} S.Ramanujan. Congruence properties of partitions. \emph{Mathematische Zeitschrift}, vol.9 (1921), n.1-2, p.147-153.
+% \end{thebibliography}
+
+\end{document}  

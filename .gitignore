@@ -1,1 +1,4 @@
 conjure-output-*
+*.aux
+*.log
+*.pdf

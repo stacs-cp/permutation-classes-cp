@@ -3,29 +3,37 @@ language Essence 1.3
 given length : int
 given avoiding : set of (sequence(injective) of int, relation of (int * int))
 
-find perm : sequence (size length, injective) of int(1..length)
+find perm : matrix indexed by [int(0..length+1)] of int(0..length+1)
+
+
+such that
+
+    $ We put a fake '0' and 'length+1' on the beginning and end so boundary checking
+    $ works
+    perm[0] = 0,
+    perm[length+1] = length+1,
+    forAll i: int(1..length).
+        (1 <= perm[i] /\ perm[i] <= length),
+    allDiff([perm[i] | i : int(1..length)])
 
 such that
     forAll (av, mesh) in avoiding .
-    $    exists avinv: sequence (size length, injective) of int(1..length),
-    $            (forAll i: int(1..|av|) .
-    $                avinv[av(i)] = i).
+    exists avinv: matrix indexed by [int(0..|av|+1)] of int(0..|av|+1),
+                avinv[0] = 0 /\ avinv[|av|+1] = |av|+1 /\
+                (forAll i: int(1..|av|) .
+                    avinv[av(i)] = i).
         forAll ix : matrix indexed by [int(0..|av|+1)] of int(0..length+1),
             and([ ix[0]=0 /\ ix[|av|+1]=length+1
                 $ Notice this forces 1 <= ix[1..|av|] <= length
                 , forAll i : int(0..|av|) . ix[i] < ix[i+1]
                 , forAll n1, n2 : int(1..|av|) , n1 < n2 .
-                    av(n1) < av(n2) <-> perm(ix[n1]) < perm(ix[n2])
+                    av(n1) < av(n2) <-> perm[ix[n1]] < perm[ix[n2]]
                 ]) .
-            (
-                forAll i,j: int(0..|av|).
-                    (i,j) in mesh ->
-                    $ the box ix[i]..ix[j], values perm(ix[i])..perm(ix[j]) is empty.
-                    forAll z: int(ix[i]+1..ix[i+1]-1).
-                        !(perm(z) >= perm(ix[j]) /\ perm(z) <= perm(ix[j+1]))
-
+            (   
+                exists i,j: int(0..|av|).
+                    (i,j) in mesh /\
+                    $ the box ix[i]..ix[i+1], values perm(ix[j])..perm(ix[j]) contains something.
+                    exists z: int(ix[i]+1..ix[i+1]-1). (perm[ix[avinv[j]]] <= perm[z] /\ perm[z] <= perm[ix[avinv[j]+1]])
             )
-
-
 
 

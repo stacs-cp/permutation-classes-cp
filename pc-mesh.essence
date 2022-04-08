@@ -12,9 +12,7 @@ such that
     $ works
     perm[0] = 0,
     perm[length+1] = length+1,
-    forAll i: int(1..length).
-        (1 <= perm[i] /\ perm[i] <= length),
-    allDiff([perm[i] | i : int(1..length)])
+    allDiff(perm)
 
 such that
     forAll (av, mesh) in avoiding .

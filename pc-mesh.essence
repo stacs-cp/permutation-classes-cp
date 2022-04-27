@@ -31,8 +31,7 @@ such that
                 ]) .
             (   
                 $ If we find the pattern, make sure there is at least one value in some cell of the mesh
-                exists i,j: int(0..|av|).
-                    (i,j) in mesh /\
+                exists (i,j) in mesh.
                     exists z: int(ix[i]+1..ix[i+1]-1). (perm[ix[avinv[j]]] <= perm[z] /\ perm[z] <= perm[ix[avinv[j+1]]])
             )
 

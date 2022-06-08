@@ -1,0 +1,2 @@
+letting length be 3
+letting avoiding be { ( sequence(1,2), relation() ) }

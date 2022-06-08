@@ -1,0 +1,38 @@
+language Essence 1.3
+
+$ This of mesh patterns to avoid
+given avoiding : set of (sequence(injective) of int, relation of (int * int))
+
+$ The permutation we are searching for (1..length is the permutation)
+given length : int
+find perm : matrix indexed by [int(0..length+1)] of int(0..length+1)
+
+such that
+    $ Fix start and end value in permutation
+    perm[0] = 0,
+    perm[length+1] = length+1,
+    $ Make sure that all members of the permutation are different
+    allDiff(perm)
+
+such that
+    $ av is the pattern, mesh is the mesh as a relation
+    forAll (av, mesh) in avoiding .
+    $ Build the inverse of 'av'. This is completely evaluated before solving.
+    exists avinv: matrix indexed by [int(0..|av|+1)] of int(0..|av|+1),
+                avinv[0] = 0 /\ avinv[|av|+1] = |av|+1 /\
+                (forAll i: int(1..|av|) . avinv[av(i)] = i).
+        $ Look for all places where the pattern can occur
+        exists ix : matrix indexed by [int(0..|av|+1)] of int(0..length+1),
+            and([ ix[0]=0
+                , ix[|av|+1]=length+1
+                , forAll i : int(0..|av|) . ix[i] < ix[i+1]
+                , forAll n1, n2 : int(1..|av|) , n1 < n2 .
+                    av(n1) < av(n2) <-> perm[ix[n1]] < perm[ix[n2]]
+                ]) .
+            !(
+                $ If we find the pattern, make sure there is at least one value in some cell of the mesh
+                exists (i,j) in mesh.
+                    exists z: int(ix[i]+1..ix[i+1]-1). (perm[ix[avinv[j]]] <= perm[z] /\ perm[z] <= perm[ix[avinv[j+1]]])
+            )
+
+

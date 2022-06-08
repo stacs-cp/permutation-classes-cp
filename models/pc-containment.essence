@@ -1,7 +1,7 @@
 language Essence 1.3
 
-$ This of mesh patterns to avoid
-given avoiding : set of (sequence(injective) of int, relation of (int * int))
+$ This of mesh patterns to contain
+given containing : set of (sequence(injective) of int, relation of (int * int))
 
 $ The permutation we are searching for (1..length is the permutation)
 given length : int
@@ -16,7 +16,7 @@ such that
 
 such that
     $ av is the pattern, mesh is the mesh as a relation
-    forAll (av, mesh) in avoiding .
+    forAll (av, mesh) in containing .
     $ Build the inverse of 'av'. This is completely evaluated before solving.
     exists avinv: matrix indexed by [int(0..|av|+1)] of int(0..|av|+1),
                 avinv[0] = 0 /\ avinv[|av|+1] = |av|+1 /\

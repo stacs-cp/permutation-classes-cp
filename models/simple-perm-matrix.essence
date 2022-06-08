@@ -1,0 +1,26 @@
+language Essence 1.3
+
+$ given n : int
+letting length be 7
+find perm : matrix indexed by [int(0..length+1)] of int(0..length+1)
+
+$ Simple permutations do not contain intervals.
+$ An interval is a set of contiguous indices such that the values are also contiguous.
+
+$ matrix is a permutation
+such that
+    $ Fix start and end value in permutation
+    perm[0] = 0,
+    perm[length+1] = length+1,
+    $ Make sure that all members of the permutation are different
+    allDiff(perm)
+
+$ perm is a simple permutation
+such that
+    [ max(subperm) - min(subperm) + 1 != |subperm|          $ the values are not contiguous
+    | i : int(1..length)                                    $ start index of the sub perm
+    , j : int(1..length)                                    $ end index of the sub perm
+    , i < j                                                 $ start comes before end
+    , (i,j) != (1,length)                                   $ it's not the full permutation
+    , letting subperm be [perm[k] | k : int(i..j)]          $ give the sub perm a name
+    ]

@@ -1,0 +1,31 @@
+language Essence 1.3
+
+given length : int
+find perm : sequence (size length, injective) of int(1..length)
+
+$ perm is a simple permutation
+such that
+    [ max(subperm) - min(subperm) + 1 != |subperm|          $ the values are not contiguous
+    | i : int(1..length)                                    $ start index of the sub perm
+    , j : int(1..length)                                    $ end index of the sub perm
+    , i < j                                                 $ start comes before end
+    , (i,j) != (1,length)                                   $ it's not the full permutation
+    , letting subperm be [perm(k) | k : int(i..j)]          $ give the sub perm a name
+    ] 
+    OR NOT
+    [ max(subperm) - min(subperm) + 1 = |subperm|           $ the values are contiguous
+    | i : int(1..length)                                    $ start index of the sub perm
+    , j : int(1..length)                                    $ end index of the sub perm
+    , i < j                                                 $ start comes before end
+    , (i,j) != (1,length)                                   $ it's not the full permutation
+    , letting subperm be [perm(k) | k : int(i..j)],         $ give the sub perm a name
+                                                            $ sub perm has a subperm (subsubperm) where
+        [ max(subsubperm) - min(subsubperm) + 1 = |subsubperm| $ the first part has contiguous values
+        | x : int(1..length(subperm)-1)                        $ end index of subsubperm
+        , forAll(x in subsubperm, x < min(subsubperm(x+1..length(subperm)))) $ all values of subsubperm are less than the rest of subperm
+        , letting subsubperm be [subperm(k) | k : int(1..x)] $ naming subsubperm
+        OR                                                   $ OR sub perm has a subperm where
+        [ max(subsubperm) - min(subsubperm) + 1 = |subsubperm|  $ the first part has contiguous values
+        | x : int(1..length(subperm)-1)                          $ end index of subsubperm
+        , forAll(x in subsubperm, x > max(subsubperm(x+1..length(subperm)))) $ all values of subsubperm are greater than the rest of subperm
+        , letting subsubperm be [subperm(k) | k : int(1..x)] $ naming subsubperm

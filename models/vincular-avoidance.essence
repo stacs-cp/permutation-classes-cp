@@ -5,6 +5,8 @@ given avoiding : set of (sequence (injective) of int, sequence of int)
 
 find perm : sequence (size length, injective) of int(1..length)
 
+
+$ An occurrence of P in T corresponds to a subsequence T(i_1)T(i_2)...T(i_k) of T that is order-isomorphic to P and for which T (i_(j+1)) = T (i_j + 1) whenever P contains P(j)P(j+1).
 such that
     forAll (av,cons) in avoiding .
         !(exists ix : matrix indexed by [int(1..|av|)] of int(1..length) .

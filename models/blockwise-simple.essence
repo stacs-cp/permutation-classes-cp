@@ -3,29 +3,81 @@ language Essence 1.3
 given length : int
 find perm : sequence (size length, injective) of int(1..length)
 
-$ perm is a simple permutation
+$ $ perm is not plus-decomposable
+$ such that
+$     forAll sep : int(2..length-1) .
+$         max([ perm(i) | i : int(1..sep) ]) > min([ perm(i) | i : int(sep+1..length) ])
+$
+$ $ perm is not minus-decomposable
+$ such that
+$     forAll sep : int(2..length-1) .
+$         min([ perm(i) | i : int(1..sep) ]) < max([ perm(i) | i : int(sep+1..length) ])
+
 such that
-    [ max(subperm) - min(subperm) + 1 != |subperm|          $ the values are not contiguous
-    | i : int(1..length)                                    $ start index of the sub perm
-    , j : int(1..length)                                    $ end index of the sub perm
-    , i < j                                                 $ start comes before end
-    , (i,j) != (1,length)                                   $ it's not the full permutation
-    , letting subperm be [perm(k) | k : int(i..j)]          $ give the sub perm a name
-    ] 
-    OR NOT
-    [ max(subperm) - min(subperm) + 1 = |subperm|           $ the values are contiguous
-    | i : int(1..length)                                    $ start index of the sub perm
-    , j : int(1..length)                                    $ end index of the sub perm
-    , i < j                                                 $ start comes before end
-    , (i,j) != (1,length)                                   $ it's not the full permutation
-    , letting subperm be [perm(k) | k : int(i..j)],         $ give the sub perm a name
-                                                            $ sub perm has a subperm (subsubperm) where
-        [ max(subsubperm) - min(subsubperm) + 1 = |subsubperm| $ the first part has contiguous values
-        | x : int(1..length(subperm)-1)                        $ end index of subsubperm
-        , forAll(x in subsubperm, x < min(subsubperm(x+1..length(subperm)))) $ all values of subsubperm are less than the rest of subperm
-        , letting subsubperm be [subperm(k) | k : int(1..x)] $ naming subsubperm
-        OR                                                   $ OR sub perm has a subperm where
-        [ max(subsubperm) - min(subsubperm) + 1 = |subsubperm|  $ the first part has contiguous values
-        | x : int(1..length(subperm)-1)                          $ end index of subsubperm
-        , forAll(x in subsubperm, x > max(subsubperm(x+1..length(subperm)))) $ all values of subsubperm are greater than the rest of subperm
-        , letting subsubperm be [subperm(k) | k : int(1..x)] $ naming subsubperm
+    [ and([ max([ perm(i) | i : int(start..middle) ]) > min([ perm(i) | i : int(middle+1..end) ])
+          , min([ perm(i) | i : int(start..middle) ]) < max([ perm(i) | i : int(middle+1..end) ])
+          $ , forAll i : int(1..start-1) . perm(i) < minSE \/ perm(i) > maxSE
+          $ , forAll i : int(end+1..length) . perm(i) < minSE \/ perm(i) > maxSE
+          ])
+    | start, middle, end : int(1..length)
+    , start <= middle
+    , middle < end
+    , letting minSE be min([ perm(i) | i : int(start..end) ])
+    , letting maxSE be max([ perm(i) | i : int(start..end) ])
+    , maxSE - minSE = end - start
+    ]
+
+$ such that
+$     [ and([ max([ perm(i) | i : int(start..middle) ]) > min([ perm(i) | i : int(middle+1..end) ])
+$           , min([ perm(i) | i : int(start..middle) ]) < max([ perm(i) | i : int(middle+1..end) ])
+$
+$
+$           ])
+$     | start, middle, end : int(1..length)
+$
+$     , start <= middle
+$     , middle < end
+$
+$     , minSE, maxSE : int(1..length)
+$     , minSE < maxSE
+$     , maxSE - minSE = end - start
+$
+$     , forAll i : int(start..end) . perm(i) >= minSE
+$     , forAll i : int(start..end) . perm(i) <= maxSE
+$
+$     , forAll i : int(1..start-1) . perm(i) < minSE \/ perm(i) > maxSE
+$     , forAll i : int(end+1..length) . perm(i) < minSE \/ perm(i) > maxSE
+$
+$     ]
+
+
+
+$ $ perm is a simple permutation
+$ such that
+$     [ max(subperm) - min(subperm) + 1 != |subperm|          $ the values are not contiguous
+$     | i : int(1..length)                                    $ start index of the sub perm
+$     , j : int(1..length)                                    $ end index of the sub perm
+$     , i < j                                                 $ start comes before end
+$     , (i,j) != (1,length)                                   $ it's not the full permutation
+$     , letting subperm be [perm(k) | k : int(i..j)]          $ give the sub perm a name
+$     ]
+
+    $
+    $
+    $ OR NOT
+    $ [ max(subperm) - min(subperm) + 1 = |subperm|           $ the values are contiguous
+    $ | i : int(1..length)                                    $ start index of the sub perm
+    $ , j : int(1..length)                                    $ end index of the sub perm
+    $ , i < j                                                 $ start comes before end
+    $ , (i,j) != (1,length)                                   $ it's not the full permutation
+    $ , letting subperm be [perm(k) | k : int(i..j)],         $ give the sub perm a name
+    $                                                         $ sub perm has a subperm (subsubperm) where
+    $     [ max(subsubperm) - min(subsubperm) + 1 = |subsubperm| $ the first part has contiguous values
+    $     | x : int(1..length(subperm)-1)                        $ end index of subsubperm
+    $     , forAll(x in subsubperm, x < min(subsubperm(x+1..length(subperm)))) $ all values of subsubperm are less than the rest of subperm
+    $     , letting subsubperm be [subperm(k) | k : int(1..x)] $ naming subsubperm
+    $     OR                                                   $ OR sub perm has a subperm where
+    $     [ max(subsubperm) - min(subsubperm) + 1 = |subsubperm|  $ the first part has contiguous values
+    $     | x : int(1..length(subperm)-1)                          $ end index of subsubperm
+    $     , forAll(x in subsubperm, x > max(subsubperm(x+1..length(subperm)))) $ all values of subsubperm are greater than the rest of subperm
+    $     , letting subsubperm be [subperm(k) | k : int(1..x)] $ naming subsubperm

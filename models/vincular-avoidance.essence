@@ -1,22 +1,30 @@
 language Essence 1.3
 
 given length : int
-given avoiding : set of (sequence (injective) of int, sequence of int)
+$ given avoiding : set of (sequence (injective) of int, sequence of int)
+
+$ letting length be 10
+$ letting avoiding be (1,4,(2,3))
 
 find perm : sequence (size length, injective) of int(1..length)
 
-
-$ An occurrence of P in T corresponds to a subsequence T(i_1)T(i_2)...T(i_k) of T that is order-isomorphic to P and for which T (i_(j+1)) = T (i_j + 1) whenever P contains bar{P(j)P(j+1)}. 
-$ The barred entries are the second entry in avoiding. With the number showing the first index. If the bar extends over more than 2 entries then we have one value for each entry -1 (so always the start of a pair). 
-$ I've not thought through how to indicate that the vincular pattern involves ONLY the first or ONLY the last entry (i.e. the perm has to start with 1 or end with n resp) but that could be 0 and n respectively?
-
-such that
-    forAll (av,cons) in avoiding .
-        !(exists ix : matrix indexed by [int(1..|av|)] of int(1..length) .
-            (forAll i,j : int(1..|av|) . i < j -> ix[i] < ix[j]) /\
-            (forAll n1, n2 : int(1..|av|) , n1 < n2 .
-                (av(n1) < av(n2) <-> perm(ix[n1]) < perm(ix[n2])) /\
-                    (forAll c in cons , c = n1 /\ c+1 = n2 . 
-                        (perm(ix[c+1]) = perm(ix[c]+1)))
-            )
-        )
+such that forAll s : sequence (size 4) of int(1..length) , s(1) < s(2) /\ s(2) < s(3) /\ s(3) < s(4) /\ s(3) + 1 = s(4) .
+    !(perm(s(1)) < perm(s(3)) /\
+      perm(s(3)) < perm(s(4)) /\
+      perm(s(4)) < perm(s(2)))
+$
+$
+$ $ An occurrence of P in T corresponds to a subsequence T(i_1)T(i_2)...T(i_k) of T that is order-isomorphic to P and for which T (i_(j+1)) = T (i_j + 1) whenever P contains bar{P(j)P(j+1)}.
+$ $ The barred entries are the second entry in avoiding. With the number showing the first index. If the bar extends over more than 2 entries then we have one value for each entry -1 (so always the start of a pair).
+$ $ I've not thought through how to indicate that the vincular pattern involves ONLY the first or ONLY the last entry (i.e. the perm has to start with 1 or end with n resp) but that could be 0 and n respectively?
+$
+$ such that
+$     forAll (av,cons) in avoiding .
+$         !(exists ix : matrix indexed by [int(1..|av|)] of int(1..length) .
+$             (forAll i,j : int(1..|av|) . i < j -> ix[i] < ix[j]) /\
+$             (forAll n1, n2 : int(1..|av|) , n1 < n2 .
+$                 (av(n1) < av(n2) <-> perm(ix[n1]) < perm(ix[n2])) /\
+$                     (forAll c in cons , c = n1 /\ c+1 = n2 .
+$                         (perm(ix[c+1]) = perm(ix[c]+1)))
+$             )
+$         )

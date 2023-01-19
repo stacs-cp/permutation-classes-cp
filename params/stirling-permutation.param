@@ -1,0 +1,5 @@
+letting n be 6
+letting repeats be 3
+letting avoiding be {
+    sequence(2,1,2)
+}

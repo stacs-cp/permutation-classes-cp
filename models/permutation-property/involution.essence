@@ -1,0 +1,8 @@
+given length : int
+find perm : sequence (size length, injective) of int(1..length)
+
+$ perm is an involution
+$ perm * perm = id
+such that
+    forAll i : int(1..length) .
+        perm(perm(i)) = i

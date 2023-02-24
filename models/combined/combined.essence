@@ -2,6 +2,10 @@
 given length : int
 find perm : sequence (size length, injective) of int(1..length)
 find permPadded : matrix indexed by [int(0..length+1)] of int(0..length+1)
+
+
+
+
 given classic_avoidance : set of sequence of int
 
 
@@ -11,6 +15,10 @@ such that
             (forAll i,j : int(1..|pattern|) . i < j -> ix[i] < ix[j]) /\
             (forAll n1, n2 : int(1..|pattern|) , n1 < n2 .
                 pattern(n1) < pattern(n2) <-> perm(ix[n1]) < perm(ix[n2])))
+
+
+
+
 given classic_containment : set of sequence of int
 
 
@@ -20,6 +28,10 @@ such that
             (forAll i,j : int(1..|pattern|) . i < j -> ix[i] < ix[j]) /\
             (forAll n1, n2 : int(1..|pattern|) , n1 < n2 .
                 pattern(n1) < pattern(n2) <-> perm(ix[n1]) < perm(ix[n2])))
+
+
+
+
 given vincular_containment : set of (sequence (injective) of int, set of int)
 
 
@@ -36,6 +48,10 @@ such that
             .
 
             (forAll bar in bars . ix[bar] + 1 = ix[bar+1])
+
+
+
+
 given vincular_avoidance : set of (sequence (injective) of int, set of int)
 
 
@@ -52,6 +68,10 @@ such that
             .
 
             !(forAll bar in bars . ix[bar] + 1 = ix[bar+1])
+
+
+
+
 given bivincular_containment : set of (sequence (injective) of int, set of int)
 
 
@@ -70,6 +90,10 @@ such that
             (forAll bar in bars . ix[bar] + 1 = ix[bar+1])
             /\
             (forAll bar in bars . perm(ix[bar]) + 1 = perm(ix[bar+1]))        $ because bivincular
+
+
+
+
 given bivincular_avoidance : set of (sequence (injective) of int, set of int)
 
 
@@ -89,6 +113,10 @@ such that
                 /\
                 (forAll bar in bars . perm(ix[bar]) + 1 = perm(ix[bar+1]))
             )
+
+
+
+
 $ This of mesh patterns to contain
 given mesh_containment : set of (sequence(injective) of int, relation of (int * int))
 
@@ -120,6 +148,10 @@ such that
                 exists (i,j) in mesh.
                     exists z: int(ix[i]+1..ix[i+1]-1). (permPadded[ix[patterninv[j]]] <= permPadded[z] /\ permPadded[z] <= permPadded[ix[patterninv[j+1]]])
             )
+
+
+
+
 $ This of mesh patterns to avoid
 given mesh_avoidance : set of (sequence(injective) of int, relation of (int * int))
 
@@ -151,6 +183,10 @@ such that
                 exists (i,j) in mesh.
                     exists z: int(ix[i]+1..ix[i+1]-1). (permPadded[ix[patterninv[j]]] <= permPadded[z] /\ permPadded[z] <= permPadded[ix[patterninv[j+1]]])
             )
+
+
+
+
 
 $ This of mesh patterns to contain
 given boxed_mesh_containment : set of sequence(injective) of int
@@ -184,6 +220,10 @@ such that
                   exists j : int(1..|av|) .
                     exists z: int(ix[i]+1..ix[i+1]-1). (permPadded[ix[avinv[j]]] <= permPadded[z] /\ permPadded[z] <= permPadded[ix[avinv[j+1]]])
             )
+
+
+
+
 $ This of mesh patterns to avoid
 given boxed_mesh_avoidance : set of sequence(injective) of int
 
@@ -216,6 +256,10 @@ such that
                 exists j : int(1..|av|) .
                     exists z: int(ix[i]+1..ix[i+1]-1). (permPadded[ix[avinv[j]]] <= permPadded[z] /\ permPadded[z] <= permPadded[ix[avinv[j+1]]])
             )
+
+
+
+
 given consecutive_containment : set of sequence (injective) of int
 
 
@@ -232,6 +276,10 @@ such that
             .
 
             (forAll bar : int(1..|pattern|-1) . ix[bar] + 1 = ix[bar+1])
+
+
+
+
 given consecutive_avoidance : set of sequence (injective) of int
 
 
@@ -249,6 +297,10 @@ such that
 
             !(forAll bar : int(1..|pattern|-1) . ix[bar] + 1 = ix[bar+1])
 
+
+
+
+
 $ Simple permutations do not contain intervals.
 $ An interval is a set of contiguous indices such that the values are also contiguous.
 
@@ -265,6 +317,10 @@ such that prop_simple -> and(
     ]
 
     )
+
+
+
+
 
 given prop_block_wise_simple : bool
 such that prop_block_wise_simple -> and(
@@ -284,17 +340,29 @@ such that prop_block_wise_simple -> and(
 
     )
 
+
+
+
+
 $ perm is plus-decomposable
 given prop_plus_decomposable : bool
 such that prop_plus_decomposable ->
     exists sep : int(1..length-1) .
         max([ perm(i) | i : int(1..sep) ]) < min([ perm(i) | i : int(sep+1..length) ])
 
+
+
+
+
 $ perm is minus-decomposable
 given prop_mins_decomposable : bool
 such that prop_mins_decomposable ->
     exists sep : int(1..length-1) .
         min([ perm(i) | i : int(1..sep) ]) > max([ perm(i) | i : int(sep+1..length) ])
+
+
+
+
 
 $ perm is an involution
 $ perm * perm = id
@@ -304,15 +372,27 @@ such that prob_involution ->
     forAll i : int(1..length) .
         perm(perm(i)) = i
 
+
+
+
+
 given prob_derangement : bool
 such that prob_derangement ->
     forAll i : int(1..length) .
         perm(i) != i
 
+
+
+
+
 given prop_non_derangement : bool
 such that prop_non_derangement ->
     exists i : int(1..length) .
         perm(i) = i
+
+
+
+
 
 $ the inversion count
 find inversionCount : int(0..length**2) $ upper bound is not tight
@@ -324,6 +404,10 @@ such that
             , perm(i) > perm(j)
             ])
 
+
+
+
+
 $ the inversion count
 find descentCount : int(0..length)
 such that
@@ -332,6 +416,10 @@ such that
             | i : int(1..length-1)
             , perm(i) > perm(i+1)
             ])
+
+
+
+
 
 $ the inversion count
 find ascentCount : int(0..length)
@@ -342,6 +430,10 @@ such that
             , perm(i) < perm(i+1)
             ])
 
+
+
+
+
 $ the inversion count
 find excedanceCount : int(0..length)
 such that
@@ -350,6 +442,10 @@ such that
             | i : int(1..length)
             , perm(i) > i
             ])
+
+
+
+
 
 $ the inversion count
 find majorIndex : int(0..length**2)

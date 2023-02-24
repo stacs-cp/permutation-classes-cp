@@ -258,7 +258,8 @@ such that prop_simple -> and(
 
     [ max(subperm) - min(subperm) + 1 != |subperm|          $ the values are not contiguous
     | i : int(1..length)                                    $ start index of the sub perm
-    , j : int(1..length)                                    $ start comes before end
+    , j : int(1..length)                                    $ end index of the sub perm
+    , i < j                                                 $ start comes before end
     , (i,j) != (1,length)                                   $ it's not the full permutation
     , letting subperm be [perm(k) | k : int(i..j)]          $ give the sub perm a name
     ]

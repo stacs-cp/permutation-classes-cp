@@ -1,5 +1,5 @@
 $ This of mesh patterns to avoid
-given boxed_avoidance : set of sequence(injective) of int
+given boxed_mesh_avoidance : set of sequence(injective) of int
 
 $ The permutation we are searching for (1..length is the permutation)
 given length : int
@@ -14,7 +14,7 @@ such that forAll i : int(1..length) . perm(i) = permPadded[i]
 
 such that
     $ av is the pattern, mesh is the mesh as a relation
-    forAll av in boxed_avoidance .
+    forAll av in boxed_mesh_avoidance .
     $ Build the inverse of 'av'. This is completely evaluated before solving.
     exists avinv: matrix indexed by [int(0..|av|+1)] of int(0..|av|+1),
                 avinv[0] = 0 /\ avinv[|av|+1] = |av|+1 /\

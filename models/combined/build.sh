@@ -23,8 +23,8 @@ printf "\n\n\n\n" >> combined.essence ; cat ../permutation-property/simple.essen
 printf "\n\n\n\n" >> combined.essence ; cat ../permutation-property/block-wise-simple.essence | grep -v '^given length' | grep -v '^find perm' | sed 's/turnedOn/prop_block_wise_simple/g' >> combined.essence
 printf "\n\n\n\n" >> combined.essence ; cat ../permutation-property/plus-decomposable.essence | grep -v '^given length' | grep -v '^find perm' | sed 's/turnedOn/prop_plus_decomposable/g' >> combined.essence
 printf "\n\n\n\n" >> combined.essence ; cat ../permutation-property/minus-decomposable.essence | grep -v '^given length' | grep -v '^find perm' | sed 's/turnedOn/prop_mins_decomposable/g' >> combined.essence
-printf "\n\n\n\n" >> combined.essence ; cat ../permutation-property/involution.essence | grep -v '^given length' | grep -v '^find perm' | sed 's/turnedOn/prob_involution/g' >> combined.essence
-printf "\n\n\n\n" >> combined.essence ; cat ../permutation-property/derangement.essence | grep -v '^given length' | grep -v '^find perm' | sed 's/turnedOn/prob_derangement/g' >> combined.essence
+printf "\n\n\n\n" >> combined.essence ; cat ../permutation-property/involution.essence | grep -v '^given length' | grep -v '^find perm' | sed 's/turnedOn/prop_involution/g' >> combined.essence
+printf "\n\n\n\n" >> combined.essence ; cat ../permutation-property/derangement.essence | grep -v '^given length' | grep -v '^find perm' | sed 's/turnedOn/prop_derangement/g' >> combined.essence
 printf "\n\n\n\n" >> combined.essence ; cat ../permutation-property/non-derangement.essence | grep -v '^given length' | grep -v '^find perm' | sed 's/turnedOn/prop_non_derangement/g' >> combined.essence
 
 

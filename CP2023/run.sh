@@ -1,5 +1,5 @@
 
-cp data.json data-$1-$2-$3.json
-echo \""length\": $1}" >> data-$1-$2-$3.json
-conjure solve $2.essence data-$1-$2-$3.json -o output-$2-$3 --solver minion --solver-options "-findallsols -noprintsols" --savilerow-options -$3
+cp data.json data-$2-$1-$3.json
+echo \""length\": $2}" >> data-$2-$1-$3.json
+conjure solve $1.essence data-$2-$1-$3.json -o output-$1-$3 --solver minion --solver-options "-findallsols -noprintsols -cpulimit 3600" --savilerow-options -$3
 

@@ -58,9 +58,8 @@ such that
                         exists z: int(ix[i]+1..ix[i+1]-1). (permPadded[ix[patterninv[j]]] <= permPadded[z] /\ permPadded[z] <= permPadded[ix[patterninv[j+1]]])
                 )
     )
-
+\/
 $ (!mesh1 /\ mesh2)
-such that
     !(
         $ pattern is the pattern, mesh is the mesh as a relation
         forAll (pattern, mesh) in mesh_avoidance1 .

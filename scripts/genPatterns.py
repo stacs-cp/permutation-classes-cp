@@ -2,6 +2,7 @@ import math
 
 permset = []
 
+# Create a set of all permutations which is global (permset) using Heap's algorithm
 def genAllPerm(perm, length):
     if length == 1:
         permset.append(perm.copy())
@@ -18,12 +19,15 @@ def genAllPerm(perm, length):
             perm[0] = tmp
         genAllPerm(perm, length-1)
 
+# For a given length generate all possible shadings. Which is in essence the power set of all coordinates.
 def genAllMesh(length):
     coords = []
+    # first the single regions
     for x in range(length+1):
         for y in range(length+1):
             coords.append([x,y])
 
+    # Then create the powerset of those coordinates
     numSquares = len(coords)
     numMeshes = (int) (math.pow(2,len(coords)))
     shadings = []
@@ -36,6 +40,7 @@ def genAllMesh(length):
 
     return shadings
 
+# Generate all shadings for all permutations of a given length n. Which will be (n!*2^((n+1)^2)) 
 def genAllPatterns(perm_length):
     genAllPerm([p+1 for p in range(perm_length)],perm_length)
 
@@ -49,7 +54,21 @@ def genAllPatterns(perm_length):
     return patts
 
 
-plength = 2
-a = genAllPatterns(plength)
-for i in a:
-    print(i)
+# def genParamFiles(patterns):
+
+# for i in patterns:
+#     for j in patterns:
+#     filename 
+#     f = open()
+
+
+
+#plength = 2
+for plength in range(1,5): 
+    permset = []
+    print(len(genAllPatterns(plength)))
+# for i in a:
+#     if i[0] == [1,2] and len(i[1]) == 2 and i[1][0] == [0,0]:
+#         print(i)
+
+#print(len(a))

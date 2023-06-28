@@ -54,13 +54,19 @@ def genAllPatterns(perm_length):
     return patts
 
 
-# def genParamFiles(patterns):
+## Simple filters for possible coincidence
+# the classic pattern has to be the same 
+# Shading lemma
+# def checkPerm(p1, p2):
+#     return p1[0] == p2[0]
 
-# for i in patterns:
-#     for j in patterns:
-#     filename 
-#     f = open()
+def generateParamFile(perm1, perm2)
+    
+    letting mesh_avoidance1 be (sequence(injective) of int, relation of (int * int))
 
+
+$ The permutation we are searching for (1..length is the permutation)
+given length : int
 
 
 #plength = 2

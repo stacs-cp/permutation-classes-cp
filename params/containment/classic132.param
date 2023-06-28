@@ -1,7 +1,7 @@
 language Essence 1.3
 
 letting length be 4
-letting avoiding be {(sequence(1,3,2),relation())}
+letting classic_containment be {sequence(1,3,2)}
 
 
 $ 14 Solution for avoidance should be

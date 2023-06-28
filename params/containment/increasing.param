@@ -1,2 +1,2 @@
-letting length be 3
-letting avoiding be { ( sequence(1,2), relation() ) }
+letting length be 4
+letting mesh_containment be { ( sequence(1,2), relation() ) }

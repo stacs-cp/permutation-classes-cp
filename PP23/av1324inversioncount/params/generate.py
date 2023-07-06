@@ -21,7 +21,7 @@ def createfile(invs,maxlength):
         # name = f'av1324-inv{i}-len{l}'
         paramstring.append(name)
         f = open(name+".param", "w")
-        f.write("letting turnedOn be true \nletting classic_avoidance be {sequence(1,3,4,2)}\n")
+        f.write("letting turnedOn be true \nletting classic_avoidance be {sequence(1,3,2,4)}\n")
         f.write(f'letting nInversions be {i}\n')
         f.write(f'letting length be {l}')
         f.close()

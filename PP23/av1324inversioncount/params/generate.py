@@ -1,7 +1,9 @@
 import os
+from math import comb
 
-inversionrange = [0,10]
 maxlength = 20
+inversionrange = [0,comb(maxlength,2)]
+
 
 def createpairs(inversionrange,maxlength):
     resarr = []

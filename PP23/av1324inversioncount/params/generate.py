@@ -34,8 +34,8 @@ def run(invs, maxlen, minionpar, nbcsat):
         pstring = createfile(invs,maxlen)
         for param in pstring:
             if minionpar[0]:
-                print(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json --solver-options \"-parallel -cores {minionpar[1]}\" --savilerow-options \"-preprocess SSACBounds\" ')
-                os.system(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json --solver-options \"-parallel -cores {minionpar[1]}\" --savilerow-options \"-preprocess SSACBounds\" ')
+                print(f'conjure solve -v ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json --solver-options \"-parallel -cores {minionpar[1]}\" --savilerow-options \"-preprocess SSACBounds\" ')
+                os.system(f'conjure solve -v ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json --solver-options \"-parallel -cores {minionpar[1]}\" --savilerow-options \"-preprocess SSACBounds\" ')
             elif nbcsat:
                 print(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json --solver=nbc_minisat_all')
                 os.system(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json --solver=nbc_minisat_all')

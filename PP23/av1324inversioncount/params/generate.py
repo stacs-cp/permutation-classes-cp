@@ -25,7 +25,7 @@ def createfile(invs,maxlength):
         f.close()
     return paramstring
 
-def run(invs, maxlen, minionpar):
+def run(invs, maxlen, minionpar, nbcsat):
     if invs[1]-invs[0]==0:
         invs = range(invs[1],invs[1]+1)
     if maxlen <= 4:
@@ -34,8 +34,13 @@ def run(invs, maxlen, minionpar):
         pstring = createfile(invs,maxlen)
         for param in pstring:
             if minionpar[0]:
+                print(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json --solver-options \"-parallel -cores {minionpar[1]}\" --savilerow-options \"-preprocess SSACBounds\" ')
                 os.system(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json --solver-options \"-parallel -cores {minionpar[1]}\" --savilerow-options \"-preprocess SSACBounds\" ')
+            elif nbcsat:
+                print(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json --solver=nbc_minisat_all')
+                os.system(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json --solver=nbc_minisat_all')
             else:
+                print(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json')
                 os.system(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json')
             # print(f'{param}')
             # os.system(f'grep -c letting conjure-output/model000001-{param}.solutions')

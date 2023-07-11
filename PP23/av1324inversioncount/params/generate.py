@@ -1,10 +1,6 @@
 import os
 from math import comb
 
-maxlength = 20
-inversionrange = [0,comb(maxlength,2)]
-
-
 def createpairs(inversionrange,maxlength):
     resarr = []
     for i in range(inversionrange[0],inversionrange[1]+1):
@@ -29,7 +25,7 @@ def createfile(invs,maxlength):
         f.close()
     return paramstring
 
-def run(invs, maxlen):
+def run(invs, maxlen, minionpar):
     if invs[1]-invs[0]==0:
         invs = range(invs[1],invs[1]+1)
     if maxlen <= 4:
@@ -37,7 +33,10 @@ def run(invs, maxlen):
     else:
         pstring = createfile(invs,maxlen)
         for param in pstring:
-            os.system(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file')
+            if minionpar[0]:
+                os.system(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json --solver-options \"-parallel -cores {minionpar[1]}\" --savilerow-options \"-preprocess SSACBounds\" ')
+            else:
+                os.system(f'conjure solve ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json')
             # print(f'{param}')
             # os.system(f'grep -c letting conjure-output/model000001-{param}.solutions')
             # f = open(f'{param}.sol', "w")
@@ -49,8 +48,3 @@ def run(invs, maxlen):
 def combinesols(invs):
     for i in range(invs[0],invs[1]+1):
         stream = os.popen('grep -ch letting conjure-output/model000001-av1324-inv{:06d}-*.solutions > inv{:06d}.seq'.format(i,i))
-    
-
-
-run(inversionrange,maxlength)
-combinesols(inversionrange)

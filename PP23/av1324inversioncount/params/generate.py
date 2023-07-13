@@ -1,16 +1,16 @@
 import os
 from math import comb
 
-def createpairs(inversionrange,maxlength):
+def createpairs(inversionrange,minlength, maxlength):
     resarr = []
     for i in range(inversionrange[0],inversionrange[1]+1):
-        for j in range(5,maxlength+1):
+        for j in range(minlength,maxlength+1):
             resarr.append([i,j])
     
     return resarr
 
-def createfile(invs,maxlength):
-    a = createpairs(invs,maxlength)
+def createfile(invs,minlength,maxlength):
+    a = createpairs(invs,minlength,maxlength)
     paramstring = []
     for p in a:
         i = p[0]
@@ -25,13 +25,13 @@ def createfile(invs,maxlength):
         f.close()
     return paramstring
 
-def run(invs, maxlen, minionpar, nbcsat):
+def run(invs, minlen, maxlen, minionpar, nbcsat):
     if invs[1]-invs[0]==0:
         invs = range(invs[1],invs[1]+1)
-    if maxlen <= 4:
+    if minlen <= 4:
         print("Length needs to be 5 or more")
     else:
-        pstring = createfile(invs,maxlen)
+        pstring = createfile(invs,minlen,maxlen)
         for param in pstring:
             if minionpar[0]:
                 print(f'conjure solve -v ../av1324invcount.essence {param}.param --number-of-solutions=all --solutions-in-one-file --output-format=json --solver-options \"-parallel -cores {minionpar[1]}\" --savilerow-options \"-preprocess SSACBounds\" ')

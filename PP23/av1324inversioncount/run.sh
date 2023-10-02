@@ -6,7 +6,7 @@ mkdir -p outputs
 # 256 cores, 1TB memory
 
 # populate conjure-output by running a small instance
-python3 run.py minion 04 04
+python3 run.py minionseq 04 04
 
 # generates commands-seq.txt and commands-par.txt
 python3 gen_commands.py

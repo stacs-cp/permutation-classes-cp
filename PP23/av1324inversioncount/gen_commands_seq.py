@@ -15,4 +15,4 @@ import math
 for solver in ["minionseq", "nbcsat"]:
     for length in [7]:  # range(4, 20+1):
         for nbInv in range(0, math.comb(length, 2) + 1):
-            print(f'python3 run.py {solver} {length} {nbInv}')
+            print(f'python3 run.py {solver} {str(length).zfill(2)} {str(nbInv).zfill(2)}')

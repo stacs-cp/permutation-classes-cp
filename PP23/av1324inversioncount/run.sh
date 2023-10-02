@@ -30,3 +30,6 @@ parallel --no-notice -j4 \
     --eta \
     :::: commands-par.txt
 cat outputs/gnuparallel-joblog-par.tsv | cut -f 1,4- > outputs/gnuparallel-joblog-par.tsv.tmp ; mv outputs/gnuparallel-joblog-par.tsv.tmp outputs/gnuparallel-joblog-par.tsv
+
+# collect results
+python3 collect_results.py

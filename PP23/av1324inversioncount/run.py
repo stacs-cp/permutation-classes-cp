@@ -22,7 +22,7 @@ if solver == 'minionseq':
     opts = '--savilerow-options "-preprocess SSACBounds"'
 elif solver == 'minionpar':
     solvername = 'minion'
-    opts = '--savilerow-options "-preprocess SSACBounds" --solver-options "-parallel -cores=32"'
+    opts = '--savilerow-options "-preprocess SSACBounds" --solver-options "-parallel -cores 32"'
 elif solver == 'nbcsat':
     solvername = 'nbc_minisat_all'
     opts = ''

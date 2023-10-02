@@ -18,7 +18,7 @@ parallel --no-notice -j240 \
     --memfree 100G \
     --shuf \
     --eta \
-    :::: commands_seq.txt
+    :::: commands-seq.txt
 cat outputs/gnuparallel-joblog-seq.tsv | cut -f 1,4- > outputs/gnuparallel-joblog-seq.tsv.tmp ; mv outputs/gnuparallel-joblog-seq.tsv.tmp outputs/gnuparallel-joblog-seq.tsv
 
 # par
@@ -28,5 +28,5 @@ parallel --no-notice -j4 \
     --memfree 100G \
     --shuf \
     --eta \
-    :::: commands_par.txt
+    :::: commands-par.txt
 cat outputs/gnuparallel-joblog-par.tsv | cut -f 1,4- > outputs/gnuparallel-joblog-par.tsv.tmp ; mv outputs/gnuparallel-joblog-par.tsv.tmp outputs/gnuparallel-joblog-par.tsv

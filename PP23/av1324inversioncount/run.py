@@ -17,15 +17,15 @@ with open(paramfile, "w") as out:
 
 # run conjure
 
-if solver == "minionseq":
-    solvername = "minion"
-    opts = ""
-elif solver == "minionpar":
-    solvername = "minion"
-    opts = '--savilerow-options "-preprocess SSACBounds" --solver-options "-parallel -cores 32"'
-elif solver == "nbcsat":
-    solvername = "nbc_minisat_all"
-    opts = ""
+if solver == 'minionseq':
+    solvername = 'minion'
+    opts = '--savilerow-options "-preprocess SSACBounds"'
+elif solver == 'minionpar':
+    solvername = 'minion'
+    opts = '--savilerow-options "-preprocess SSACBounds" --solver-options "-parallel -cores=32"'
+elif solver == 'nbcsat':
+    solvername = 'nbc_minisat_all'
+    opts = ''
 
 os.system(f'conjure solve av1324invcount.essence {paramfile} --number-of-solutions=all --solutions-in-one-file --output-format=json --solver={solvername} {opts}')
 

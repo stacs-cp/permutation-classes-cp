@@ -13,6 +13,8 @@
 import math
 
 for solver in ["minionseq", "nbcsat"]:
-    for length in [7]:  # range(4, 20+1):
+    for length in range(1, 20+1):
+        lengthPadded = str(length).zfill(2)
         for nbInv in range(0, math.comb(length, 2) + 1):
-            print(f'python3 run.py {solver} {str(length).zfill(2)} {str(nbInv).zfill(2)}')
+            nbInvPadded = str(nbInv).zfill(2)
+            print(f'python3 run.py {solver} {lengthPadded} {nbInvPadded}')

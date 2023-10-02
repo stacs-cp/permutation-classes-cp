@@ -26,6 +26,8 @@ elif solver == 'minionpar':
 elif solver == 'nbcsat':
     solvername = 'nbc_minisat_all'
     opts = ''
+else:
+    sys.exit(f'Unexpected solver {solver}')
 
 os.system(f'conjure solve av1324invcount.essence {paramfile} --number-of-solutions=all --solutions-in-one-file --output-format=json --solver={solvername} {opts}')
 

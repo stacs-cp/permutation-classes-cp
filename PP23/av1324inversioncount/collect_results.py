@@ -23,7 +23,7 @@ for dirpath, dirnames, filenames in os.walk("conjure-output"):
 headers = set()
 for _, info in allInfo:
     headers = headers.union(info.keys())
-headers = list(headers)
+headers = sorted(list(headers))
 
 with open("outputs/info.csv", "w") as out:
     heading = ", ".join(["solver", "length", "nbInv"] + headers)

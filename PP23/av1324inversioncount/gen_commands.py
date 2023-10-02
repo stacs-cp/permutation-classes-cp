@@ -7,7 +7,7 @@ import math
 
 # Length:
 # - 1 to upto
-upto = 25
+upto = 15
 
 # Number of inversions:
 # - 0 .. comb(length,2)

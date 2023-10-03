@@ -1,4 +1,5 @@
 
+################################################################################
 # create the param file
 
 import sys, os
@@ -15,6 +16,8 @@ with open(paramfile, "w") as out:
     print(f'letting length be {length}', file=out)
     print(f'letting nInversions be {nbInv}', file=out)
 
+
+################################################################################
 # run conjure
 
 if solver == 'minionseq':
@@ -31,4 +34,18 @@ else:
 
 os.system(f'conjure solve av1324invcount.essence {paramfile} --number-of-solutions=all --solutions-in-one-file --output-format=json --solver={solvername} {opts}')
 
+
+################################################################################
 # cleanup
+
+os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.eprime-param')
+os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.eprime-minion')
+try: os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.eprime-dimacs')
+except: pass
+os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.eprime-infor')
+os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.eprime-solutions')
+os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.solutions')
+
+# leave eprime-info
+# leave solutions.json, compress
+os.system(f'gzip conjure-output/model000001-{solver}-{length}-{nbInv}.solutions.json')

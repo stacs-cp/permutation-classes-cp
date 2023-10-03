@@ -14,8 +14,12 @@ for dirpath, dirnames, filenames in os.walk("conjure-output"):
                     for l in f:
                         [k, v] = l.split(":")
                         info[k.strip()] = v.strip()
-                info["TotalTime"] = str(
-                    float(info["SolverTotalTime"]) + float(info["SavileRowTotalTime"]))
+
+                try:
+                    info["TotalTime"] = str(
+                        float(info["SolverTotalTime"]) + float(info["SavileRowTotalTime"]))
+                except:
+                    info["TotalTime"] = "NA"
             except FileNotFoundError:
                 pass
             allInfo.append(([solver, length, nbInv], info))

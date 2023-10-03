@@ -1,4 +1,5 @@
 import math
+import os
 
 # Solvers:
 # - minionseq
@@ -19,8 +20,10 @@ with open("commands-seq.txt", "w") as out:
             lengthPadded = str(length).zfill(2)
             for nbInv in range(0, math.comb(length, 2) + 1):
                 nbInvPadded = str(nbInv).zfill(3)
-                print(
-                    f'python3 run.py {solver} {lengthPadded} {nbInvPadded}', file=out)
+                solutionFile = f'gzip conjure-output/model000001-{solver}-{lengthPadded}-{nbInvPadded}.solutions.json.gz'
+                if not os.path.exists(solutionFile):
+                    print(
+                        f'python3 run.py {solver} {lengthPadded} {nbInvPadded}', file=out)
 
 with open("commands-par.txt", "w") as out:
     for solver in ["minionpar"]:
@@ -28,5 +31,7 @@ with open("commands-par.txt", "w") as out:
             lengthPadded = str(length).zfill(2)
             for nbInv in range(0, math.comb(length, 2) + 1):
                 nbInvPadded = str(nbInv).zfill(3)
-                print(
-                    f'python3 run.py {solver} {lengthPadded} {nbInvPadded}', file=out)
+                solutionFile = f'gzip conjure-output/model000001-{solver}-{lengthPadded}-{nbInvPadded}.solutions.json.gz'
+                if not os.path.exists(solutionFile):
+                    print(
+                        f'python3 run.py {solver} {lengthPadded} {nbInvPadded}', file=out)

@@ -25,7 +25,7 @@ if solver == 'minionseq':
     opts = '--savilerow-options "-preprocess SSACBounds"'
 elif solver == 'minionpar':
     solvername = 'minion'
-    opts = '--savilerow-options "-preprocess SSACBounds" --solver-options "-parallel -cores 32"'
+    opts = '--savilerow-options "-preprocess SSACBounds" --solver-options "-parallel -cores 32 -findallsols -noprintsols"'
 elif solver == 'nbcsat':
     solvername = 'nbc_minisat_all'
     opts = ''
@@ -48,4 +48,4 @@ os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.solutions')
 
 # leave eprime-info
 # leave solutions.json, compress
-os.system(f'gzip conjure-output/model000001-{solver}-{length}-{nbInv}.solutions.json')
+# os.system(f'gzip conjure-output/model000001-{solver}-{length}-{nbInv}.solutions.json')

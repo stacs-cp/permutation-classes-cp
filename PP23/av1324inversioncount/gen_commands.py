@@ -15,16 +15,16 @@ upto = 15
 # - 0 .. comb(length,2)
 
 
-with open("commands-seq.txt", "w") as out:
-    for solver in ["minionseq", "nbcsat"]:
-        for length in range(from_, upto+1):
-            lengthPadded = str(length).zfill(2)
-            for nbInv in range(0, math.comb(length, 2) + 1):
-                nbInvPadded = str(nbInv).zfill(3)
-                infoFile = f'conjure-output/model000001-{solver}-{lengthPadded}-{nbInvPadded}.eprime-info'
-                if not os.path.exists(infoFile):
-                    print(
-                        f'python3 run.py {solver} {lengthPadded} {nbInvPadded}', file=out)
+# with open("commands-seq.txt", "w") as out:
+#     for solver in ["minionseq", "nbcsat"]:
+#         for length in range(from_, upto+1):
+#             lengthPadded = str(length).zfill(2)
+#             for nbInv in range(0, math.comb(length, 2) + 1):
+#                 nbInvPadded = str(nbInv).zfill(3)
+#                 infoFile = f'conjure-output/model000001-{solver}-{lengthPadded}-{nbInvPadded}.eprime-info'
+#                 if not os.path.exists(infoFile):
+#                     print(
+#                         f'python3 run.py {solver} {lengthPadded} {nbInvPadded}', file=out)
 
 with open("commands-par.txt", "w") as out:
     for solver in ["minionpar"]:

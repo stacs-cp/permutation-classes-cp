@@ -42,10 +42,14 @@ os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.eprime-param')
 os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.eprime-minion')
 try: os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.eprime-dimacs')
 except: pass
-os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.eprime-infor')
-os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.eprime-solutions')
-os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.solutions')
+try: os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.eprime-infor')
+except: pass
+try: os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.eprime-solutions')
+except: pass
+try: os.remove(f'conjure-output/model000001-{solver}-{length}-{nbInv}.solutions')
+except: pass
 
 # leave eprime-info
 # leave solutions.json, compress
-# os.system(f'gzip conjure-output/model000001-{solver}-{length}-{nbInv}.solutions.json')
+try: os.system(f'gzip conjure-output/model000001-{solver}-{length}-{nbInv}.solutions.json')
+except: pass

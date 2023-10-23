@@ -9,7 +9,7 @@ import os
 # Length:
 # - 1 to upto
 from_ = 1
-upto = 15
+upto = 16
 
 # Number of inversions:
 # - 0 .. comb(length,2)
@@ -28,7 +28,7 @@ upto = 15
 
 with open("commands-par.txt", "w") as out:
     for solver in ["minionpar"]:
-        for length in range(from_, upto+1):
+        for length in range(from_, upto + 1):
             lengthPadded = str(length).zfill(2)
             for nbInv in range(0, math.comb(length, 2) + 1):
                 nbInvPadded = str(nbInv).zfill(3)

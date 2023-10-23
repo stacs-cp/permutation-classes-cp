@@ -5,7 +5,7 @@ import json
 allInfo = []
 
 for dirpath, dirnames, filenames in os.walk("conjure-output"):
-    for infofile in filenames:
+    for infofile in sorted(filenames):
         if infofile.endswith(".eprime-info"):
             [_, solver, length, nbInv] = infofile.split(".")[0].split("-")
             info = {}

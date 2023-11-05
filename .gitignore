@@ -1,5 +1,10 @@
-conjure-output
-conjure-output-*
+.conjure-checksum
+*.eprime-solution
+*.solution
+*infor
+*.eprime-param
+*.eprime-minion
+
 *.aux
 *.log
 *.pdf

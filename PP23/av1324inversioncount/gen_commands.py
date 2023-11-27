@@ -39,7 +39,7 @@ with open("commands-par.txt", "w") as out:
 
         # also: 23x20
         for length in range(1, 23+1):
-            for nbInv in range(0, 1 + min(20, math.comb(length, 2)) + 1):
+            for nbInv in range(0, min(20, math.comb(length, 2)) + 1):
                 i = nbInv
                 lengthPadded = str(length).zfill(2)
                 nbInvPadded = str(i).zfill(3)

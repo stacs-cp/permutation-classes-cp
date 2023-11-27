@@ -3,7 +3,7 @@ import os
 
 # Solvers:
 # - minionseq
-# - minionpar
+# - minionpar (this is the one we use)
 # - nbcsat
 
 # Length:
@@ -37,9 +37,9 @@ with open("commands-par.txt", "w") as out:
                     print(f'python3 run.py {solver} {lengthPadded} {nbInvPadded}', file=out)
                     print(f'python3 run.py {solver} {lengthPadded} {nbInvPadded}')
 
-        # also: 20x20
-        for length in range(1, 20):
-            for nbInv in range(0, min(20, math.comb(length, 2)) + 1):
+        # also: 23x20
+        for length in range(1, 23+1):
+            for nbInv in range(0, 1 + min(20, math.comb(length, 2)) + 1):
                 i = nbInv
                 lengthPadded = str(length).zfill(2)
                 nbInvPadded = str(i).zfill(3)

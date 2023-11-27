@@ -12,21 +12,9 @@ python3 run.py minionseq 04 004
 # generates commands-seq.txt and commands-par.txt
 python3 gen_commands.py
 
-# # seq
-# parallel --no-notice -j240 \
-#     --joblog outputs/gnuparallel-joblog-seq.tsv \
-#     --results outputs/gnuparallel-results-seq \
-#     --memfree 100G \
-#     --shuf \
-#     --eta \
-#     :::: commands-seq.txt
-# cat outputs/gnuparallel-joblog-seq.tsv | cut -f 1,4- > outputs/gnuparallel-joblog-seq.tsv.tmp ; mv outputs/gnuparallel-joblog-seq.tsv.tmp outputs/gnuparallel-joblog-seq.tsv
-
-# par
 parallel --no-notice -j1 \
     --joblog outputs/gnuparallel-joblog-par.tsv \
     --results outputs/gnuparallel-results-par \
-    --memfree 100G \
     --eta \
     :::: commands-par.txt
 cat outputs/gnuparallel-joblog-par.tsv | cut -f 1,4- > outputs/gnuparallel-joblog-par.tsv.tmp ; mv outputs/gnuparallel-joblog-par.tsv.tmp outputs/gnuparallel-joblog-par.tsv

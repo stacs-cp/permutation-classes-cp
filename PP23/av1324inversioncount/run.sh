@@ -9,7 +9,7 @@ mkdir -p outputs
 rm -f conjure-output/model000001-minionseq-04-004.solutions.json.gz
 python3 run.py minionseq 04 004
 
-# generates commands-seq.txt and commands-par.txt
+# generates commands-par.txt
 python3 gen_commands.py
 
 parallel --no-notice -j1 \

@@ -1,0 +1,67 @@
+Seq	JobRuntime	Send	Receive	Exitval	Signal	Command
+1	 60052.279	0	142	0	0	python3 run.py minionpar 21 020
+2	167742.786	0	142	0	0	python3 run.py minionpar 22 020
+3	449755.773	0	142	0	0	python3 run.py minionpar 23 020
+Seq	JobRuntime	Send	Receive	Exitval	Signal	Command
+1	   466.016	0	142	0	0	python3 run.py minionpar 17 018
+2	   600.334	0	142	0	0	python3 run.py minionpar 17 019
+3	  1866.691	0	142	0	0	python3 run.py minionpar 18 019
+4	  5474.687	0	142	0	0	python3 run.py minionpar 19 019
+5	 16648.994	0	142	0	0	python3 run.py minionpar 16 050
+6	 18218.371	0	142	0	0	python3 run.py minionpar 16 051
+7	 19751.582	0	142	0	0	python3 run.py minionpar 16 052
+8	 21140.759	0	142	0	0	python3 run.py minionpar 16 053
+9	 22815.677	0	142	0	0	python3 run.py minionpar 16 054
+10	 24635.934	0	142	0	0	python3 run.py minionpar 16 055
+11	 26589.865	0	142	0	0	python3 run.py minionpar 16 056
+12	 28336.934	0	142	0	0	python3 run.py minionpar 16 057
+13	 29854.493	0	142	0	0	python3 run.py minionpar 16 058
+14	 31974.319	0	142	0	0	python3 run.py minionpar 16 059
+15	 34565.342	0	142	0	0	python3 run.py minionpar 16 060
+16	 36814.072	0	142	0	0	python3 run.py minionpar 16 061
+17	 38053.559	0	142	0	0	python3 run.py minionpar 16 062
+18	 40494.785	0	142	0	0	python3 run.py minionpar 16 063
+19	 43212.999	0	142	0	0	python3 run.py minionpar 16 064
+20	 44310.399	0	142	0	0	python3 run.py minionpar 16 065
+21	 46109.914	0	142	0	0	python3 run.py minionpar 16 066
+22	 49627.733	0	142	0	0	python3 run.py minionpar 16 067
+23	 52105.171	0	142	0	0	python3 run.py minionpar 16 068
+24	 54311.975	0	142	0	0	python3 run.py minionpar 16 069
+25	 55867.802	0	142	0	0	python3 run.py minionpar 16 070
+26	 55766.068	0	142	0	0	python3 run.py minionpar 16 071
+27	 58365.710	0	142	0	0	python3 run.py minionpar 16 072
+28	 60685.287	0	142	0	0	python3 run.py minionpar 16 073
+29	 62103.838	0	142	0	0	python3 run.py minionpar 16 074
+30	 61270.186	0	142	0	0	python3 run.py minionpar 16 075
+31	 59964.322	0	142	0	0	python3 run.py minionpar 16 076
+32	 61838.846	0	142	0	0	python3 run.py minionpar 16 077
+33	 61463.769	0	142	0	0	python3 run.py minionpar 16 078
+34	 59175.605	0	142	0	0	python3 run.py minionpar 16 079
+35	 60567.125	0	142	0	0	python3 run.py minionpar 16 080
+36	 57936.872	0	142	0	0	python3 run.py minionpar 16 081
+37	 61223.727	0	142	0	0	python3 run.py minionpar 16 082
+38	 60237.677	0	142	0	0	python3 run.py minionpar 16 083
+39	 52810.407	0	142	0	0	python3 run.py minionpar 16 084
+40	 54931.118	0	142	0	0	python3 run.py minionpar 16 085
+41	 51358.821	0	142	0	0	python3 run.py minionpar 16 086
+42	 47171.845	0	142	0	0	python3 run.py minionpar 16 087
+43	 45314.877	0	142	0	0	python3 run.py minionpar 16 088
+44	 38226.619	0	142	0	0	python3 run.py minionpar 16 089
+45	 37127.493	0	142	0	0	python3 run.py minionpar 16 090
+46	 33533.734	0	142	0	0	python3 run.py minionpar 16 091
+47	 28486.880	0	142	0	0	python3 run.py minionpar 16 092
+48	 23652.333	0	142	0	0	python3 run.py minionpar 16 093
+49	 20193.010	0	142	0	0	python3 run.py minionpar 16 094
+50	 17709.597	0	142	0	0	python3 run.py minionpar 16 095
+51	 14922.959	0	142	0	0	python3 run.py minionpar 16 096
+52	 12261.596	0	142	0	0	python3 run.py minionpar 16 097
+53	  9944.638	0	142	0	0	python3 run.py minionpar 16 098
+54	  7639.749	0	142	0	0	python3 run.py minionpar 16 099
+55	  5719.105	0	142	0	0	python3 run.py minionpar 16 100
+56	  4253.747	0	142	0	0	python3 run.py minionpar 16 101
+57	  3190.738	0	142	0	0	python3 run.py minionpar 16 102
+58	  2342.559	0	142	0	0	python3 run.py minionpar 16 103
+Seq	Host	Starttime	JobRuntime	Send	Receive	Exitval	Signal	Command
+1	:	1698517921.875	 60052.279	0	142	0	0	python3 run.py minionpar 21 020
+2	:	1698577974.705	167742.786	0	142	0	0	python3 run.py minionpar 22 020
+3	:	1698745718.026	449755.773	0	142	0	0	python3 run.py minionpar 23 020

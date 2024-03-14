@@ -1,11 +1,30 @@
 given length : int
-given classic_containment : set of sequence of int
+given classic_containment : sequence of sequence of int
 
 find perm : sequence (size length, injective) of int(1..length)
+find classic_containment_evidence : sequence (size |classic_containment|) of sequence (maxSize length) of int(1..length)
 
+$ the length of the evidence needs to match the length of the pattern
 such that
-    forAll pattern in classic_containment .
-         (exists ix : matrix indexed by [int(1..|pattern|)] of int(1..length) .
-            (forAll i,j : int(1..|pattern|) . i < j -> ix[i] < ix[j]) /\
-            (forAll n1, n2 : int(1..|pattern|) , n1 < n2 .
-                pattern(n1) < pattern(n2) <-> perm(ix[n1]) < perm(ix[n2])))
+    [ |ix| = |pattern|
+    | (patternId, pattern) <- classic_containment
+    , letting ix be classic_containment_evidence(patternId)
+    ]
+
+$ ...
+such that
+    [ forAll n1, n2 : int(1..|pattern|) . n1 < n2 -> ix(n1) < ix(n2)
+    | (patternId, pattern) <- classic_containment
+    , letting ix be classic_containment_evidence(patternId)
+    ]
+
+$ if two points are ordered in a particular way in the pattern
+$ they must also be ordered in the same way in the permutation
+such that
+    [ forAll n1, n2 : int(1..|pattern|) , n1 < n2 .
+        pattern(n1) < pattern(n2) <-> perm(ix(n1)) < perm(ix(n2))
+    | (patternId, pattern) <- classic_containment
+    , letting ix be classic_containment_evidence(patternId)
+    ]
+
+branching on [perm]

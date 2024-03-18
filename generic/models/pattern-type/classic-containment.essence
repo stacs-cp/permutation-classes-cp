@@ -13,7 +13,7 @@ such that
 
 $ ...
 such that
-    [ forAll n1, n2 : int(1..|pattern|) . n1 < n2 -> ix(n1) < ix(n2)
+    [ forAll n : int(1..|pattern|-1) . ix(n) < ix(n+1)
     | (patternId, pattern) <- classic_containment
     , letting ix be classic_containment_evidence(patternId)
     ]

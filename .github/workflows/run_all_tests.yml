@@ -1,0 +1,28 @@
+name: Test Python
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Install Python
+        run: python3 -m venv code/.venv
+      - name: Run all instances
+        run: |
+          (time python3 -u generic/run.py minion) 2>&1 | tee stdout-minion.txt
+          (time python3 -u generic/run.py sat) 2>&1 | tee stdout-sat.txt
+      - name: Run Classical Tests
+        run: |
+          ./tests/classical.sh

@@ -19,10 +19,13 @@ jobs:
           python-version: "3.10"
       - name: Install Python
         run: python3 -m venv code/.venv
-      - name: Run all instances
+      - name: Generate Params
         run: |
-          (time python3 -u generic/run.py minion) 2>&1 | tee stdout-minion.txt
-          (time python3 -u generic/run.py sat) 2>&1 | tee stdout-sat.txt
+          ./tests/generate_params.sh
+      - name: Solve Params
+        run: |
+          ./tests/solve_classical_containment_params.sh
+          ./tests/solve_classical_avoidance_params.sh
       - name: Run Classical Tests
         run: |
           ./tests/classical.sh

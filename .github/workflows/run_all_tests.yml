@@ -19,13 +19,13 @@ jobs:
           python-version: "3.10"
       - name: Install Python
         run: python3 -m venv code/.venv
-      - name: Generate Params
-        run: |
-          ./tests/generate_params.sh
-      - name: Solve Params
-        run: |
-          ./tests/solve_classical_containment_params.sh
-          ./tests/solve_classical_avoidance_params.sh
+#      - name: Generate Params
+#        run: |
+#          ./tests/generate_params.sh
+#      - name: Solve Params
+#        run: |
+#          ./tests/solve_classical_containment_params.sh
+#          ./tests/solve_classical_avoidance_params.sh
       - name: Run Classical Tests
         run: |
           ./tests/classical.sh

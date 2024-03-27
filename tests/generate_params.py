@@ -15,11 +15,12 @@ def generate_params(type):
     for length in range(1, 6):
         for perm in permutations(range(1, length + 1)):
             permutation = toString(perm)
-            f = open(path + "classic" + permutation + ".json", 'w')
-            pattern = {"length": length, "classic_" + type: [perm]}
-            json_pattern = json.dumps(pattern, indent=4)
-            with f as outfile:
-                outfile.write(json_pattern)
+            for length_of_perm in range(1, 6):
+                f = open(path + "classic" + permutation + "-" + str(length_of_perm) + ".json", 'w')
+                pattern = {"length": length_of_perm, "classic_" + type: [perm]}
+                json_pattern = json.dumps(pattern, indent=4)
+                with f as outfile:
+                    outfile.write(json_pattern)
 
 def toString(perm):
     s = ''.join(map(str, perm))

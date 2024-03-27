@@ -26,18 +26,18 @@ def containment_check(filename):
                 exit(0)
 
 def check_permutation_is_contained(permutation, pattern):
-    '''
     pattern_pairs = list(itertools.combinations(pattern, 2))
     permutation_pairs = list(itertools.combinations(permutation, 2))
+    count = 0
     print("-------------------------")
     print("Permutation: ", permutation)
     print("Pattern: ", pattern_pairs)
     print("Permutation: ", permutation_pairs)
-    count = 0
     for pair in pattern_pairs:
         for pair2 in permutation_pairs:
-            if (pair[0] - pair[1] == pair2[0] - pair2[1]) ||
-            if pair[0] - pair[1] == pair2[0] - pair2[1]:
+            height1 = pair[0] - pair[1]
+            height2 = pair2[0] - pair2[1]
+            if height1 == height2:
                 permutation_pairs = permutation_pairs[permutation_pairs.index(pair2) + 1:]
                 count += 1
                 break
@@ -45,25 +45,7 @@ def check_permutation_is_contained(permutation, pattern):
     if count == len(pattern_pairs):
         return True
     return False
-    '''
-    pattern_pairs = list(itertools.combinations(pattern, 2))
 
-    # Check each pair for relative order in the permutation
-    for pair in pattern_pairs:
-        found = False
-        for i in range(len(permutation) - 1):
-            if permutation[i] == pair[0]:
-                for j in range(i + 1, len(permutation)):
-                    if permutation[j] == pair[1]:
-                        found = True
-                        break
-                if not found:
-                    return False
-                break
-        if not found:
-            return False
-
-    return True
 
 # Check that all avoidance outputs have the right results
 def avoidance_check(filename):
@@ -94,15 +76,18 @@ def matches_pattern(subsequence, pattern):
 
 if __name__ == '__main__':
     pattern = [1, 3, 2]
-    '''
+
     for permutation in itertools.permutations(range(1, len(pattern) + 2)):
         if check_permutation_is_contained(permutation, pattern):
             print("Checked Permutation:", permutation)
-    '''
 
+
+    '''
     for permutation in itertools.permutations(range(1, len(pattern) + 2)):
         if check_permutation_is_avoided(permutation, pattern):
             print("Checked Permutation:", permutation)
+    '''
+
     # run_tests()
 
     '''

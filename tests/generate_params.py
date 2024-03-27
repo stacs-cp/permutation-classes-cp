@@ -16,7 +16,7 @@ def generate_params(type):
         for perm in permutations(range(1, length + 1)):
             permutation = toString(perm)
             f = open(path + "classic" + permutation + ".json", 'w')
-            pattern = {"length": length, "classical_" + type: perm}
+            pattern = {"length": length, "classic_" + type: [perm]}
             json_pattern = json.dumps(pattern, indent=4)
             with f as outfile:
                 outfile.write(json_pattern)

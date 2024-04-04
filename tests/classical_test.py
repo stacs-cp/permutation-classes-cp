@@ -2,39 +2,37 @@ import itertools
 import json
 import os
 import re
+import sys
 
 from itertools import combinations
 
 
 # Run all classical tests
-def run_tests():
-    containment_files = os.listdir('tests/output/classical/containment')
-    avoidance_files = os.listdir('tests/output/classical/avoidance')
+def run_tests(patternType):
+    if patternType == 'containment':
+        path = os.listdir('tests/output/classical/containment')
+        print("== Containment Check ==")
+    else:
+        path = os.listdir('tests/output/classical/avoidance')
+        print("== Avoidance Check ==")
 
-    print("== Containment Check ==")
-    for filename in containment_files:
+
+    for filename in path:
         number = re.findall("[0-9]*-[0-9]", filename)
         index = number[0].index("-")
         pat = number[0][:index]
-        pattern_to_contain = []
+        pattern = []
         for x in pat:
-            pattern_to_contain.append(int(x))
-        containment_check(filename, pattern_to_contain)
-
-    print("== Avoidance Check ==")
-    for filename in avoidance_files:
-        number = re.findall("[0-9]*-[0-9]", filename)
-        index = number[0].index("-")
-        pat = number[0][:index]
-        pattern_to_avoid = []
-        for x in pat:
-            pattern_to_avoid.append(int(x))
-        avoidance_check(filename, pattern_to_avoid)
+            pattern.append(int(x))
+        if patternType == 'containment':
+            containment_check(filename, pattern)
+        else:
+            avoidance_check(filename, pattern)
 
 
 # Check that all containment outputs have the right results
 def containment_check(filename, pattern):
-    f = open('output/classical/containment/' + filename, 'r', encoding='utf')
+    f = open('tests/output/classical/containment/' + filename, 'r', encoding='utf')
     data = json.load(f)
     for entry in data:
         match check_permutation_is_contained(pattern, entry['perm']):
@@ -71,7 +69,7 @@ def check_contain_pattern(pattern_pairs, permutation_pairs):
 
 # Check that all avoidance outputs have the right results
 def avoidance_check(filename, pattern):
-    f = open('output/classical/avoidance/' + filename, 'r', encoding='utf')
+    f = open('tests/output/classical/avoidance/' + filename, 'r', encoding='utf')
     data = json.load(f)
     for entry in data:
         match check_permutation_is_avoided(pattern, entry['perm']):
@@ -107,4 +105,8 @@ def check_avoid_pattern(pattern_pairs, permutation_pairs):
 
 
 if __name__ == '__main__':
-    run_tests()
+    if len(sys.argv) != 2:
+        print("Invalid arguments")
+        print("Usage:", sys.argv[0], "<patternType>")
+        exit(1)
+    run_tests(sys.argv[1])

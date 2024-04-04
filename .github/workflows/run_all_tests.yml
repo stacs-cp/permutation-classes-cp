@@ -7,11 +7,9 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
+  Generate-Params:
     steps:
+      - runs-on: ubuntu-latest
       - uses: actions/checkout@v4
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
@@ -29,16 +27,53 @@ jobs:
           mkdir tests/output/classical
           mkdir tests/output/classical/containment
           mkdir tests/output/classical/avoidance
-      - name: Set Conjure Path
-        run: |
-          echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH
       - name: Generate Params
         run: |
           ./tests/generate_params.sh
+      - name: Set Conjure Path
+        run: |
+          echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH
+  Solve-Classical-Containment:
+    steps:
+      - runs-on: ubuntu-latest
+      - uses: actions/checkout@v4
+      - needs: [Generate-Params]
       - name: Solve Params
         run: |
           ./tests/solve_classical_containment_params.sh
+  Solve-Classical-Avoidance:
+    steps:
+      - runs-on: ubuntu-latest
+      - uses: actions/checkout@v4
+      - needs: [Generate-Params]
+      - name: Solve Params
+        run: |
           ./tests/solve_classical_avoidance_params.sh
+  Run-Classical-Containment-Tests:
+    steps:
+      - runs-on: ubuntu-latest
+      - uses: actions/checkout@v4
+      - needs: [Solve-Classical-Containment]
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Install Python
+        run: python3 -m venv code/.venv
       - name: Run Classical Tests
         run: |
-          ./tests/classical.sh
+          python3 tests/classical_test.py containment
+  Run-Classical-Avoidance-Tests:
+    steps:
+      - runs-on: ubuntu-latest
+      - uses: actions/checkout@v4
+      - needs: [Solve-Classical-Avoidance]
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Install Python
+        run: python3 -m venv code/.venv
+      - name: Run Classical Tests
+        run: |
+          python3 tests/classical_test.py avoidance

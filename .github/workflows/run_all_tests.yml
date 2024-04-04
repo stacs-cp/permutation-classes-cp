@@ -2,15 +2,19 @@ name: Test All Models
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
+
   Generate-Params:
+    runs-on: ubuntu-latest
     steps:
-      - runs-on: ubuntu-latest
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:
@@ -19,41 +23,43 @@ jobs:
         run: python3 -m venv code/.venv
       - name: Create Directories
         run: |
-          mkdir tests/params
-          mkdir tests/params/classical
-          mkdir tests/params/classical/containment
-          mkdir tests/params/classical/avoidance
-          mkdir tests/output
-          mkdir tests/output/classical
-          mkdir tests/output/classical/containment
-          mkdir tests/output/classical/avoidance
+          mkdir -p tests/params/classical/containment
+          mkdir -p tests/params/classical/avoidance
+          mkdir -p tests/output/classical/containment
+          mkdir -p tests/output/classical/avoidance
       - name: Generate Params
         run: |
           ./tests/generate_params.sh
       - name: Set Conjure Path
         run: |
           echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH
+
   Solve-Classical-Containment:
+    runs-on: ubuntu-latest
+    needs: Generate-Params
     steps:
-      - runs-on: ubuntu-latest
-      - uses: actions/checkout@v4
-      - needs: [Generate-Params]
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Solve Params
         run: |
           ./tests/solve_classical_containment_params.sh
+
   Solve-Classical-Avoidance:
+    runs-on: ubuntu-latest
+    needs: Generate-Params
     steps:
-      - runs-on: ubuntu-latest
-      - uses: actions/checkout@v4
-      - needs: [Generate-Params]
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Solve Params
         run: |
           ./tests/solve_classical_avoidance_params.sh
+
   Run-Classical-Containment-Tests:
+    runs-on: ubuntu-latest
+    needs: Solve-Classical-Containment
     steps:
-      - runs-on: ubuntu-latest
-      - uses: actions/checkout@v4
-      - needs: [Solve-Classical-Containment]
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:
@@ -63,11 +69,13 @@ jobs:
       - name: Run Classical Tests
         run: |
           python3 tests/classical_test.py containment
+
   Run-Classical-Avoidance-Tests:
+    runs-on: ubuntu-latest
+    needs: Solve-Classical-Avoidance
     steps:
-      - runs-on: ubuntu-latest
-      - uses: actions/checkout@v4
-      - needs: [Solve-Classical-Avoidance]
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:

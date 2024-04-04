@@ -40,10 +40,10 @@ jobs:
           echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH
       - name: Generate Params
         run: |
-          python3 tests/generate_params.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}
+          ./tests/generate_params.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}
       - name: Solve Params
         run: |
           ./tests/solve_params.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}
       - name: Run Classical Tests
         run: |
-          python3 tests/run_tests.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}
+          ./tests/run_tests.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}

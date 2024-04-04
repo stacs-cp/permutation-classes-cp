@@ -32,7 +32,7 @@ def run_tests(patternType):
 
 # Check that all containment outputs have the right results
 def containment_check(filename, pattern):
-    f = open('tests/output/classical/containment/' + filename, 'r', encoding='utf')
+    f = open('tests/output/vincular/containment/' + filename, 'r', encoding='utf')
     data = json.load(f)
     for entry in data:
         match check_permutation_is_contained(pattern, entry['perm'], 1):
@@ -77,7 +77,7 @@ def check_vincular_property(perm_pairs, permutation, adjacent):
 
 # Check that all avoidance outputs have the right results
 def avoidance_check(filename, pattern):
-    f = open('tests/output/classical/avoidance/' + filename, 'r', encoding='utf')
+    f = open('tests/output/vincular/avoidance/' + filename, 'r', encoding='utf')
     data = json.load(f)
     for entry in data:
         match check_permutation_is_avoided(pattern, entry['perm'], 1):

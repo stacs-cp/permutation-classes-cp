@@ -30,9 +30,6 @@ jobs:
       - name: Generate Params
         run: |
           ./tests/generate_params.sh
-      - name: Set Conjure Path
-        run: |
-          echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH
 
   Solve-Classical-Containment:
     runs-on: ubuntu-latest
@@ -40,6 +37,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Set Conjure Path
+        run: |
+          echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH
       - name: Solve Params
         run: |
           ./tests/solve_classical_containment_params.sh
@@ -50,6 +50,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Set Conjure Path
+        run: |
+          echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH
       - name: Solve Params
         run: |
           ./tests/solve_classical_avoidance_params.sh

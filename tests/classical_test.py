@@ -8,8 +8,8 @@ from itertools import combinations
 
 # Run all classical tests
 def run_tests():
-    containment_files = os.listdir('output/classical/containment')
-    avoidance_files = os.listdir('output/classical/avoidance')
+    containment_files = os.listdir('tests/output/classical/containment')
+    avoidance_files = os.listdir('tests/output/classical/avoidance')
 
     print("== Containment Check ==")
     for filename in containment_files:

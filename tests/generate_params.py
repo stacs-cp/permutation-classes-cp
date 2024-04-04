@@ -7,9 +7,9 @@ def generate_params(type):
     # Determine Pattern Type
     match type:
         case "containment":
-            path = "params/classical/containment/"
+            path = "tests/params/classical/containment/"
         case "avoidance":
-            path = "params/classical/avoidance/"
+            path = "tests/params/classical/avoidance/"
 
     # Generate Permutations up to length 6 and write to directory
     for length in range(1, 7):

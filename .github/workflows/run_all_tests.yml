@@ -12,6 +12,8 @@ jobs:
 
   Generate-Params:
     runs-on: ubuntu-latest
+    outputs:
+      tests-paths: ${{ steps.set-tests-path.outputs.tests-path }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -27,6 +29,7 @@ jobs:
           mkdir -p tests/params/classical/avoidance
           mkdir -p tests/output/classical/containment
           mkdir -p tests/output/classical/avoidance
+          echo "::set-output name=tests-path::$(pwd)/tests"
       - name: Generate Params
         run: |
           ./tests/generate_params.sh
@@ -37,6 +40,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Copy generated files
+        run: cp -r ${{ needs.Generate-Params.outputs.tests-path }} .
       - name: Set Conjure Path
         run: |
           echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH
@@ -50,6 +55,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Copy generated files
+        run: cp -r ${{ needs.Generate-Params.outputs.tests-path }} .
       - name: Set Conjure Path
         run: |
           echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH
@@ -63,6 +70,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Copy generated files
+        run: cp -r ${{ needs.Solve-Classical-Containment.outputs.tests-path }} .
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:
@@ -79,6 +88,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Copy generated files
+        run: cp -r ${{ needs.Solve-Classical-Avoidance.outputs.tests-path }} .
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:

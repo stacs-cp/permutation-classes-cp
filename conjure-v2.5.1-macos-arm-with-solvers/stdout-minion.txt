@@ -1,0 +1,2 @@
+/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python: can't open file '/Users/finneganchamberlain/Desktop/permutation-classes-cp/conjure-v2.5.1-macos-arm-with-solvers/run.py': [Errno 2] No such file or directory
+python3 -u run.py minion  0.02s user 0.02s system 31% cpu 0.110 total

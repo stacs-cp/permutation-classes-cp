@@ -1,4 +1,4 @@
-name: Test Python
+name: Test All Models
 
 on:
   push:
@@ -19,13 +19,23 @@ jobs:
           python-version: "3.10"
       - name: Install Python
         run: python3 -m venv code/.venv
-#      - name: Generate Params
-#        run: |
-#          ./tests/generate_params.sh
-#      - name: Solve Params
-#        run: |
-#          ./tests/solve_classical_containment_params.sh
-#          ./tests/solve_classical_avoidance_params.sh
+      - name: Create Directories
+        run: |
+          mkdir tests/params
+          mkdir tests/params/classical
+          mkdir tests/params/classical/containment
+          mkdir tests/params/classical/avoidance
+          mkdir tests/output
+          mkdir tests/output/classical
+          mkdir tests/output/classical/containment
+          mkdir tests/output/classical/avoidance
+      - name: Generate Params
+        run: |
+          ./tests/generate_params.sh
+      - name: Solve Params
+        run: |
+          ./tests/solve_classical_containment_params.sh
+          ./tests/solve_classical_avoidance_params.sh
       - name: Run Classical Tests
         run: |
           ./tests/classical.sh

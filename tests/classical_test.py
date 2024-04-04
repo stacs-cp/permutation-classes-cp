@@ -8,9 +8,10 @@ from itertools import combinations
 
 # Run all classical tests
 def run_tests():
-    containment_files = os.listdir('output/containment')
-    avoidance_files = os.listdir('output/avoidance/')
+    containment_files = os.listdir('output/classical/containment')
+    avoidance_files = os.listdir('output/classical/avoidance')
 
+    print("== Containment Check ==")
     for filename in containment_files:
         number = re.findall("[0-9]*-[0-9]", filename)
         index = number[0].index("-")
@@ -20,6 +21,7 @@ def run_tests():
             pattern_to_contain.append(int(x))
         containment_check(filename, pattern_to_contain)
 
+    print("== Avoidance Check ==")
     for filename in avoidance_files:
         number = re.findall("[0-9]*-[0-9]", filename)
         index = number[0].index("-")
@@ -32,14 +34,16 @@ def run_tests():
 
 # Check that all containment outputs have the right results
 def containment_check(filename, pattern):
-    f = open('output/containment/' + filename, 'r', encoding='utf')
+    f = open('output/classical/containment/' + filename, 'r', encoding='utf')
     data = json.load(f)
     for entry in data:
-        match check_permutation_is_contained(entry['perm'], pattern):
+        match check_permutation_is_contained(pattern, entry['perm']):
             case True:
                 continue
             case False:
+                print("== Pattern to Check: " + str(pattern) + " ==")
                 print("Permutation is invalid! {0}".format(entry['perm']))
+                print("============================================")
 
 
 def check_permutation_is_contained(pattern, permutation):
@@ -67,17 +71,19 @@ def check_contain_pattern(pattern_pairs, permutation_pairs):
 
 # Check that all avoidance outputs have the right results
 def avoidance_check(filename, pattern):
-    f = open('output/avoidance/' + filename, 'r', encoding='utf')
+    f = open('output/classical/avoidance/' + filename, 'r', encoding='utf')
     data = json.load(f)
     for entry in data:
-        match check_permutation_is_avoided(entry['perm'], pattern):
+        match check_permutation_is_avoided(pattern, entry['perm']):
             case True:
                 continue
             case False:
+                print("== Pattern to Check: " + str(pattern) + " ==")
                 print("Permutation is invalid! {0}".format(entry['perm']))
+                print("============================================")
 
 
-def check_permutation_is_avoided(permutation, pattern):
+def check_permutation_is_avoided(pattern, permutation):
     pattern_pairs = list(itertools.combinations(pattern, len(pattern)))
     permutation_pairs = list(itertools.combinations(permutation, len(pattern)))
 

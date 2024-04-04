@@ -49,7 +49,7 @@ def check_permutation_is_contained(pattern, permutation, adjacent):
     permutation_pairs = list(itertools.combinations(permutation, len(pattern)))
 
     for pair in permutation_pairs:
-        if check_contain_pattern(pattern_pairs[0], pair, adjacent):
+        if check_contain_pattern(pattern_pairs[0], pair, permutation, adjacent):
             return True
     return False
 

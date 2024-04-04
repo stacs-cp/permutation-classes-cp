@@ -31,7 +31,7 @@ jobs:
           mkdir tests/output/classical/avoidance
       - name: Set Conjure Path
         run: |
-          echo "conjure-v2.5.1-macos-arm-with-solvers" >> $GITHUB_PATH
+          echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH
       - name: Generate Params
         run: |
           ./tests/generate_params.sh

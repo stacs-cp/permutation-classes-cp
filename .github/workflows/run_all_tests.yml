@@ -44,6 +44,6 @@ jobs:
       - name: Solve Params
         run: |
           ./tests/solve_params.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}
-      - name: Run Classical Tests
+      - name: Run Tests
         run: |
           ./tests/run_tests.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}

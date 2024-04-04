@@ -65,7 +65,7 @@ def check_contain_pattern(pattern_pairs, permutation_pairs, permutation, adjacen
     for i in range(len(perm_pairs)):
         perm_list.append(perm_pairs[i][0] < perm_pairs[i][1])
 
-    return perm_list == patt_list and check_contain_pattern(perm_pairs, permutation, adjacent)
+    return perm_list == patt_list and check_vincular_property(perm_pairs, permutation, adjacent)
 
 
 def check_vincular_property(perm_pairs, permutation, adjacent):

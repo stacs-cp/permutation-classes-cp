@@ -29,6 +29,10 @@ jobs:
           mkdir tests/output/classical
           mkdir tests/output/classical/containment
           mkdir tests/output/classical/avoidance
+      - name: Set Conjure Path
+        run: |
+          echo "conjure" >> $GITHUB_PATH
+          echo "minion" >> $GITHUB_PATH
       - name: Generate Params
         run: |
           ./tests/generate_params.sh

@@ -38,7 +38,7 @@ def generate_params(type, subType):
                     case "classic":
                         pattern = {"length": length_of_perm, type + "_" + subType: [perm,]}
                     case "vincular":
-                        pattern = {"length": length_of_perm, type + "_" + subType: [perm, [1]]}
+                        pattern = {"length": length_of_perm, type + "_" + subType: [[perm, [1]]]}
                 json_pattern = json.dumps(pattern, indent=4)
                 with f as outfile:
                     outfile.write(json_pattern)

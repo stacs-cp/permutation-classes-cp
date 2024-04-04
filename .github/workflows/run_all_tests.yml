@@ -12,7 +12,8 @@ jobs:
 
     strategy:
       matrix:
-        Type: [containment, avoidance]
+        Type: [classic, vincular]
+        Sub-Type: [containment, avoidance]
 
     runs-on: ubuntu-latest
 
@@ -26,23 +27,23 @@ jobs:
         run: python3 -m venv code/.venv
       - name: Create Directories
         run: |
-          mkdir tests/params
-          mkdir tests/params/classical
-          mkdir tests/params/classical/containment
-          mkdir tests/params/classical/avoidance
-          mkdir tests/output
-          mkdir tests/output/classical
-          mkdir tests/output/classical/containment
-          mkdir tests/output/classical/avoidance
+          mkdir -p tests/params/classical/containment
+          mkdir -p tests/params/classical/avoidance
+          mkdir -p tests/output/classical/containment
+          mkdir -p tests/output/classical/avoidance
+          mkdir -p tests/params/vincular/containment
+          mkdir -p tests/params/vincular/avoidance
+          mkdir -p tests/output/vincular/containment
+          mkdir -p tests/output/vincular/avoidance
       - name: Set Conjure Path
         run: |
           echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH
       - name: Generate Params
         run: |
-          python3 tests/generate_params.py ${{ matrix.Type }}
+          python3 tests/generate_params.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}
       - name: Solve Params
         run: |
-          ./tests/solve_params.sh ${{ matrix.Type }}
+          ./tests/solve_params.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}
       - name: Run Classical Tests
         run: |
-          python3 tests/classical_test.py ${{ matrix.Type }}
+          python3 tests/run_tests.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}

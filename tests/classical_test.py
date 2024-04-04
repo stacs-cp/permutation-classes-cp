@@ -39,9 +39,9 @@ def containment_check(filename, pattern):
             case True:
                 continue
             case False:
-                print("== Pattern to Check: " + str(pattern) + " ==")
+                print("-- Pattern to Check: " + str(pattern) + " --")
                 print("Permutation is invalid! {0}".format(entry['perm']))
-                print("============================================")
+                print("--------------------------------------------")
 
 
 def check_permutation_is_contained(pattern, permutation):
@@ -76,9 +76,9 @@ def avoidance_check(filename, pattern):
             case True:
                 continue
             case False:
-                print("== Pattern to Check: " + str(pattern) + " ==")
+                print("-- Pattern to Check: " + str(pattern) + " --")
                 print("Permutation is invalid! {0}".format(entry['perm']))
-                print("============================================")
+                print("--------------------------------------------")
 
 
 def check_permutation_is_avoided(pattern, permutation):

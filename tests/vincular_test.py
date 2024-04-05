@@ -9,6 +9,7 @@ from itertools import combinations
 
 # Run all vincular tests
 def run_tests(patternType, adjacent):
+    path = ""
     if patternType == 'containment':
         if adjacent == 1:
             path = os.listdir('tests/output/vincular/containment')
@@ -23,7 +24,6 @@ def run_tests(patternType, adjacent):
         elif adjacent == 2:
             path = os.listdir('tests/output/bivincular/avoidance')
             print("== Avoidance Check ==")
-
 
     for filename in path:
         number = re.findall("[0-9]*-[0-9]", filename)

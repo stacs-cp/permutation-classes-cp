@@ -19,11 +19,11 @@ elif [ "$1" = "vincular" ]
     if [ "$2" = "containment" ]
     then
       echo "== Running Test Suit on Vincular Containment Results ==" && \
-      python3 tests/vincular_test.py containment
+      python3 tests/vincular_test.py containment 1
   elif [ "$2" = "avoidance" ]
     then
       echo "== Running Test Suit on Vincular Avoidance Results ==" && \
-      python3 tests/vincular_test.py avoidance
+      python3 tests/vincular_test.py avoidance 1
   else
     echo "Not valid containment/avoidance!"
     exit 1

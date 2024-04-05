@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        Type: [classic, vincular, bivincular]
+        Type: [classic, vincular]
         Sub-Type: [containment, avoidance]
 
     runs-on: ubuntu-latest

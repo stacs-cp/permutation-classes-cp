@@ -70,8 +70,8 @@ def check_contain_pattern(pattern_pairs, permutation_pairs, permutation, adjacen
 
 def check_vincular_property(perm_pairs, permutation, adjacent):
     for item in perm_pairs:
-        if permutation.index(item[1]) - permutation.index(item[0]) != adjacent:
-            return False
+        if permutation.index(item[1]) - permutation.index(item[0]) == adjacent:
+            return True
     return True
 
 

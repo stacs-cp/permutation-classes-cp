@@ -28,6 +28,20 @@ elif [ "$1" = "vincular" ]
     echo "Not valid containment/avoidance!"
     exit 1
   fi
+elif [ "$1" = "bivincular" ]
+  then
+    if [ "$2" = "containment" ]
+      then
+        echo "== Generating Bivincular Containment Params ==" && \
+        python3 tests/generate_params.py bivincular containment
+  elif [ "$2" = "avoidance" ]
+    then
+      echo "== Generating Bivincular Avoidance Params ==" && \
+      python3 tests/generate_params.py bivincular avoidance
+  else
+    echo "Not valid containment/avoidance!"
+    exit 1
+  fi
 else
   echo "Not a valid type!"
   exit 1

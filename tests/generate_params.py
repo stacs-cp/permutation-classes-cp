@@ -24,6 +24,15 @@ def generate_params(type, subType):
                 case _:
                     print("Unrecognized subType!")
                     exit(1)
+        case "bivincular":
+            match subType:
+                case "containment":
+                    path = "tests/params/bivincular/containment/"
+                case "avoidance":
+                    path = "tests/params/bivincular/avoidance/"
+                case _:
+                    print("Unrecognized subType!")
+                    exit(1)
         case _:
             print("Unrecognized type!")
             exit(1)
@@ -39,6 +48,8 @@ def generate_params(type, subType):
                         pattern = {"length": length_of_perm, type + "_" + subType: [perm,]}
                     case "vincular":
                         pattern = {"length": length_of_perm, type + "_" + subType: [[perm, [1]]]}
+                    case "bivincular":
+                        pattern = {"length": length_of_perm, type + "_" + subType: [[perm, [2]]]}
                 json_pattern = json.dumps(pattern, indent=4)
                 with f as outfile:
                     outfile.write(json_pattern)

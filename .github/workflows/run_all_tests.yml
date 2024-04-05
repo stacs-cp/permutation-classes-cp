@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        Type: [classic, vincular]
+        Type: [classic, vincular, bivincular]
         Sub-Type: [containment, avoidance]
 
     runs-on: ubuntu-latest
@@ -35,6 +35,10 @@ jobs:
           mkdir -p tests/params/vincular/avoidance
           mkdir -p tests/output/vincular/containment
           mkdir -p tests/output/vincular/avoidance
+          mkdir -p tests/params/bivincular/containment
+          mkdir -p tests/params/bivincular/avoidance
+          mkdir -p tests/output/bivincular/containment
+          mkdir -p tests/output/bivincular/avoidance
       - name: Set Conjure Path
         run: |
           echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH

@@ -28,6 +28,20 @@ elif [ "$1" = "vincular" ]
     echo "Not valid containment/avoidance!"
     exit 1
   fi
+elif [ "$1" = "bivincular" ]
+  then
+    if [ "$2" = "containment" ]
+    then
+      echo "== Running Test Suit on Bivincular Containment Results ==" && \
+      python3 tests/vincular_test.py containment 2
+  elif [ "$2" = "avoidance" ]
+    then
+      echo "== Running Test Suit on Bivincular Avoidance Results ==" && \
+      python3 tests/vincular_test.py avoidance 2
+  else
+    echo "Not valid containment/avoidance!"
+    exit 1
+  fi
 else
   echo "Not a valid type!"
   exit 1

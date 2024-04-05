@@ -107,6 +107,6 @@ def check_avoid_pattern(pattern_pairs, permutation_pairs):
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         print("Invalid arguments")
-        print("Usage:", sys.argv[0], "<patternType>")
+        print("Usage:", sys.argv[0], "<type> <containment/avoidance>")
         exit(1)
     run_tests(sys.argv[1])

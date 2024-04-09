@@ -30,7 +30,7 @@ jobs:
           python-version: "3.10"
       - uses: ./.github/actions/install-conjure
         with:
-          os_arch: ubuntu-latest
+          os_arch: linux-latest
           version: 2.5.1
       - name: Install Python
         run: python3 -m venv code/.venv

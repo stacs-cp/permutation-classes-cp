@@ -28,25 +28,15 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: "3.10"
+      - uses: ./.github/actions/install-conjure
+        with:
+          os_arch: ubuntu-latest
+          version: 2.5.1
       - name: Install Python
         run: python3 -m venv code/.venv
       - name: Create Directories
         run: |
-          mkdir -p tests/params/classical/containment
-          mkdir -p tests/params/classical/avoidance
-          mkdir -p tests/output/classical/containment
-          mkdir -p tests/output/classical/avoidance
-          mkdir -p tests/params/vincular/containment
-          mkdir -p tests/params/vincular/avoidance
-          mkdir -p tests/output/vincular/containment
-          mkdir -p tests/output/vincular/avoidance
-          mkdir -p tests/params/bivincular/containment
-          mkdir -p tests/params/bivincular/avoidance
-          mkdir -p tests/output/bivincular/containment
-          mkdir -p tests/output/bivincular/avoidance
-      - name: Set Conjure Path
-        run: |
-          echo "conjure-v2.5.1-linux-with-solvers" >> $GITHUB_PATH
+          ./tests/create_directories.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}
       - name: Generate Params
         run: |
           ./tests/generate_params.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}

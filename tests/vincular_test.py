@@ -73,20 +73,13 @@ def check_contain_pattern(pattern_pairs, permutation_pairs, permutation, adjacen
     for i in range(len(perm_pairs)):
         perm_list.append(perm_pairs[i][0] < perm_pairs[i][1])
 
-    return perm_list == patt_list and check_vincular_property(perm_pairs, permutation, adjacent)
+    return perm_list == patt_list and check_vincular_property(permutation_pairs, permutation, adjacent)
 
 
-def check_vincular_property(perm_pairs, permutation, adjacent):
-    if adjacent == 1:
-        for item in perm_pairs:
-            if permutation.index(item[1]) - permutation.index(item[0]) == 1:
-                return True
-        return False
-    elif adjacent == 2:
-        for item in perm_pairs:
-            if permutation.index(item[len(item) - 1]) - permutation.index(item[len(item) - 2]) == 1:
-                return True
-        return False
+def check_vincular_property(permutation_pairs, permutation, adjacent):
+    if permutation.index(permutation_pairs[adjacent]) - permutation.index(permutation_pairs[adjacent - 1]) == 1:
+        return True
+    return False
 
 
 # Check that all avoidance outputs have the right results

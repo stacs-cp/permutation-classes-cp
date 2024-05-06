@@ -7,13 +7,13 @@ import sys
 from itertools import combinations
 
 
-# Run all vincular tests
-def run_tests(patternType):
+# Run all bivincular tests
+def run_tests(patternType, adjacent):
     if patternType == 'containment':
-        path = os.listdir('tests/output/vincular/containment')
+        path = os.listdir('tests/output/bivincular/containment')
         print("== Containment Check ==")
     else:
-        path = os.listdir('tests/output/vincular/avoidance')
+        path = os.listdir('tests/output/bivincular/avoidance')
         print("== Avoidance Check ==")
 
     for filename in path:
@@ -24,16 +24,14 @@ def run_tests(patternType):
         for x in pat:
             pattern.append(int(x))
         if patternType == 'containment':
-            for adjacent in range(len(pattern)):
-                containment_check(filename, pattern, adjacent)
+            containment_check(filename, pattern, adjacent)
         else:
-            for adjacent in range(len(pattern)):
-                avoidance_check(filename, pattern, adjacent)
+            avoidance_check(filename, pattern, adjacent)
 
 
 # Check that all containment outputs have the right results
 def containment_check(filename, pattern, adjacent):
-    f = open('tests/output/vincular/containment/' + filename, 'r', encoding='utf')
+    f = open('tests/output/bivincular/containment/' + filename, 'r', encoding='utf')
     data = json.load(f)
     for entry in data:
         match check_permutation_is_contained(pattern, entry['perm'], adjacent):
@@ -77,7 +75,7 @@ def check_vincular_property(permutation_pairs, permutation, adjacent):
 
 # Check that all avoidance outputs have the right results
 def avoidance_check(filename, pattern, adjacent):
-    f = open('tests/output/vincular/avoidance/' + filename, 'r', encoding='utf')
+    f = open('tests/output/bivincular/avoidance/' + filename, 'r', encoding='utf')
     data = json.load(f)
     for entry in data:
         match check_permutation_is_avoided(pattern, entry['perm'], adjacent):
@@ -114,8 +112,8 @@ def check_avoid_pattern(pattern_pairs, permutation_pairs, permutation, adjacent)
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         print("Invalid arguments")
-        print("Usage:", sys.argv[0], "<type> <containment/avoidance>")
+        print("Usage:", sys.argv[0], "<type> <containment/avoidance> <adjacent>")
         exit(1)
-    run_tests(sys.argv[1])
+    run_tests(sys.argv[1], sys.argv[2])

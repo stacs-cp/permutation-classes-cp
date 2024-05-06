@@ -41,7 +41,7 @@ def generate_params(type, subType):
     for length in range(1, 6):
         for perm in permutations(range(1, length + 1)):
             permutation = toString(perm)
-            for length_of_perm in range(length, 6):
+            for length_of_perm in range(1, 6):
                 f = open(path + "classic" + permutation + "-" + str(length_of_perm) + ".json", 'w')
                 match type:
                     case "classic":

@@ -1,0 +1,48 @@
+name: Test All Models
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+
+jobs:
+
+  Job:
+
+    strategy:
+      matrix:
+        Type: [classic, vincular]
+        Sub-Type: [containment, avoidance]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - uses: ./.github/actions/install-conjure
+        with:
+          os_arch: linux
+          version: 2.5.1
+      - name: Install Python
+        run: python3 -m venv code/.venv
+      - name: Create Directories
+        run: |
+          ./tests/create_directories.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}
+      - name: Generate Params
+        run: |
+          ./tests/generate_params.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}
+      - name: Solve Params
+        run: |
+          ./tests/solve_params.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}
+      - name: Run Tests
+        run: |
+          ./tests/run_tests.sh ${{ matrix.Type }} ${{ matrix.Sub-Type }}

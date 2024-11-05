@@ -70,9 +70,13 @@ def check_contain_pattern(pattern_pairs, permutation_pairs, permutation, adjacen
 
 
 def check_vincular_property(permutation_pairs, permutation, adjacent):
-    if permutation.index(permutation_pairs[adjacent]) - permutation.index(permutation_pairs[adjacent - 1]) == 1:
-        return True
-    return False
+    try:
+        return permutation.index(permutation_pairs[adjacent]) - permutation.index(permutation_pairs[adjacent - 1]) == 1:
+    except Exception as e:
+        print("permutation", permutation)
+        print("permutation_pairs", permutation_pairs)
+        print("adjacent", adjacent)
+        raise e
 
 
 # Check that all avoidance outputs have the right results
